@@ -6,18 +6,19 @@
     <e p="D:\User\Documents\MyAssLoveMyLips" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="AimGui.cs" t="Include" />
         <e p="MentalDreamsAssets" t="Include">
           <e p="SoldierSoundsPack" t="Include">
             <e p="ReadMe!.txt" t="Include" />
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="AimGui.cs" t="Include" />
+          <e p="BulletsPool.cs" t="Include" />
           <e p="CharacterInventory.cs" t="Include" />
           <e p="MouseLook.cs" t="Include" />
           <e p="Movement.cs" t="Include" />
+          <e p="Shooting.cs" t="Include" />
         </e>
-        <e p="Shooting.cs" t="Include" />
       </e>
       <e p="MyAssLoveMyLips.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
