@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour {
 
 	public int speedRotation = 3;
 	public int speed = 5;
-	public int jumpSpeed = 350;
+	public int jumpSpeed = 350; //высота прыжка
 
 	//private float delay = 3.5f;
 	//private float currentTime = 0f;
