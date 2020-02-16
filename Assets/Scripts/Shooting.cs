@@ -1,4 +1,5 @@
-﻿using BulletsPoolNamespace;
+﻿using System;
+using BulletsPoolNamespace;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
@@ -41,6 +42,14 @@ public class Shooting : MonoBehaviour
 			bullet.gameObject.SetActive(false);
 			_freeBulletsPool.putBullet(bullet);
 
+		}
+	}
+
+	private void OnCollisionEnter(Collision other)
+	{
+		if (other.gameObject.CompareTag("Player"))
+		{
+			
 		}
 	}
 

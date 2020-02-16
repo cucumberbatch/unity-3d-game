@@ -15,8 +15,15 @@
           <e p="AimGui.cs" t="Include" />
           <e p="BulletsPool.cs" t="Include" />
           <e p="CharacterInventory.cs" t="Include" />
+          <e p="Memory" t="Include">
+            <e p="Pool.cs" t="Include" />
+          </e>
           <e p="MouseLook.cs" t="Include" />
-          <e p="Movement.cs" t="Include" />
+          <e p="Movement" t="Include">
+            <e p="CommandListener.cs" t="Include" />
+            <e p="Movement.cs" t="Include" />
+            <e p="PersonFootstepsStateMachine.cs" t="Include" />
+          </e>
           <e p="Shooting.cs" t="Include" />
         </e>
       </e>
