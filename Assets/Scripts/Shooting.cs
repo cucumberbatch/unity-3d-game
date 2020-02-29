@@ -7,8 +7,9 @@ public class Shooting : MonoBehaviour
 	public Transform bulletTransform;
 	public GameObject pointLight;
 	public AudioClip fire;
+	
 
-	public GameObject poolHandle;
+	// public GameObject poolHandle;
 	
 	public int speedAmm = 1000;
 	public float offset = 0f;
@@ -103,4 +104,5 @@ public class Shooting : MonoBehaviour
 		anotherTime += indent;
 	}
 
+	
 }
