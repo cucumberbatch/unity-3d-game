@@ -5,6 +5,7 @@ public class Shooting : MonoBehaviour
 {
 
 	public Transform bulletTransform;
+	public GameObject poolDestination;
 	public GameObject pointLight;
 	public AudioClip fire;
 	
@@ -27,9 +28,9 @@ public class Shooting : MonoBehaviour
 	private float currentTime;
 	private float anotherTime;
 	private float indent = 0.1f;
-	
-	
-	void Start() {
+
+
+	public void Start() {
 		currentTime += offset;
 		
 		//Create pool and fill it with bullets
@@ -37,15 +38,14 @@ public class Shooting : MonoBehaviour
 		_freeBulletsPool = new BulletsPool(poolCapacity);
 		for (int i = 0; i < poolCapacity; i++)
 		{
-			Transform bullet = Instantiate(bulletTransform);
-			//bullet.gameObject.scene.handle = poolHandle;
+			Transform bullet = Instantiate(bulletTransform, poolDestination.transform, true);
 			bullet.gameObject.SetActive(false);
 			_freeBulletsPool.putBullet(bullet);
 
 		}
 	}
 
-	void Update() {
+	private void Update() {
 		if (Input.GetKeyDown(KeyCode.Mouse2)) {
 			isAutomatic = !isAutomatic;
 		}
