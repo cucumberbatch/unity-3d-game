@@ -78,7 +78,7 @@ public class Shooting : MonoBehaviour
 		        
 		        bullet.transform.position = transform.position;
 		        bullet.transform.rotation = transform.rotation;
-		        
+		        bullet.GetComponent<Bullet>().shootedPerson = gameObject;
 		        bullet.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * speedAmm);
 		        
 		        _usedBulletsPool.putBullet(bullet);

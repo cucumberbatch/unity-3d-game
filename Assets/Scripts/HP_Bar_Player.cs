@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class HP_Bar_Player : MonoBehaviour
 {
-    public int HP = 100;
+    public int HP = 1000;
 
     public Text HP_Bar;
     // Start is called before the first frame update
