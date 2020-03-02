@@ -6,10 +6,12 @@ public class Shooting : MonoBehaviour
 {
 
 	public Transform bulletTransform;
+	public GameObject poolDestination;
 	public GameObject pointLight;
 	public AudioClip fire;
+	
 
-	public GameObject poolHandle;
+	// public GameObject poolHandle;
 	
 	public int speedAmm = 1000;
 	public float offset = 0f;
@@ -27,9 +29,9 @@ public class Shooting : MonoBehaviour
 	private float currentTime;
 	private float anotherTime;
 	private float indent = 0.1f;
-	
-	
-	void Start() {
+
+
+	public void Start() {
 		currentTime += offset;
 		
 		//Create pool and fill it with bullets
@@ -37,14 +39,14 @@ public class Shooting : MonoBehaviour
 		_freeBulletsPool = new BulletsPool(poolCapacity);
 		for (int i = 0; i < poolCapacity; i++)
 		{
-			Transform bullet = Instantiate(bulletTransform);
-			//bullet.gameObject.scene.handle = poolHandle;
+			Transform bullet = Instantiate(bulletTransform, poolDestination.transform, true);
 			bullet.gameObject.SetActive(false);
 			_freeBulletsPool.putBullet(bullet);
 
 		}
 	}
 
+<<<<<<< HEAD
 	private void OnCollisionEnter(Collision other)
 	{
 		if (other.gameObject.CompareTag("Player"))
@@ -54,6 +56,9 @@ public class Shooting : MonoBehaviour
 	}
 
 	void Update() {
+=======
+	private void Update() {
+>>>>>>> origin/shdrnDev
 		if (Input.GetKeyDown(KeyCode.Mouse2)) {
 			isAutomatic = !isAutomatic;
 		}
@@ -86,7 +91,7 @@ public class Shooting : MonoBehaviour
 		        
 		        bullet.transform.position = transform.position;
 		        bullet.transform.rotation = transform.rotation;
-		        
+		        bullet.GetComponent<Bullet>().shootedPerson = gameObject;
 		        bullet.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * speedAmm);
 		        
 		        _usedBulletsPool.putBullet(bullet);
@@ -112,4 +117,5 @@ public class Shooting : MonoBehaviour
 		anotherTime += indent;
 	}
 
+	
 }
