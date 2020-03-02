@@ -1,5 +1,4 @@
-﻿using System;
-using BulletsPoolNamespace;
+﻿using BulletsPoolNamespace;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
@@ -46,19 +45,7 @@ public class Shooting : MonoBehaviour
 		}
 	}
 
-<<<<<<< HEAD
-	private void OnCollisionEnter(Collision other)
-	{
-		if (other.gameObject.CompareTag("Player"))
-		{
-			
-		}
-	}
-
-	void Update() {
-=======
 	private void Update() {
->>>>>>> origin/shdrnDev
 		if (Input.GetKeyDown(KeyCode.Mouse2)) {
 			isAutomatic = !isAutomatic;
 		}
