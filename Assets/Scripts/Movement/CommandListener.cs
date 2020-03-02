@@ -3,11 +3,11 @@ namespace Movement
 	public class CommandListener
 	{
 		private ISteppingCommand _steppingCommand;
-		private PersonFootstepsStateMachine machine;
+		private PersonFootstepsStateMachine _stateMachine;
 
-		public CommandListener(PersonFootstepsStateMachine machine)
+		public CommandListener(PersonFootstepsStateMachine stateMachine)
 		{
-			this.machine = machine;
+			_stateMachine = stateMachine;
 		}
 
 		public void SetCommand(ISteppingCommand steppingCommand)
@@ -17,7 +17,7 @@ namespace Movement
 
 		public void ExecuteCommand()
 		{
-			_steppingCommand.Execute(machine);
+			_steppingCommand.Execute(_stateMachine);
 		}
 	}
 
@@ -47,6 +47,30 @@ namespace Movement
 		public void Execute(PersonFootstepsStateMachine machine)
 		{
 			machine.Running();
+		}
+	}
+
+	public class Jumping : ISteppingCommand
+	{
+		public void Execute(PersonFootstepsStateMachine machine)
+		{
+			machine.Jump();
+		}
+	}
+	
+	public class Flying : ISteppingCommand
+	{
+		public void Execute(PersonFootstepsStateMachine machine)
+		{
+			machine.Flying();
+		}
+	}
+
+	public class Landing : ISteppingCommand
+	{
+		public void Execute(PersonFootstepsStateMachine machine)
+		{
+			machine.Landing();
 		}
 	}
 }

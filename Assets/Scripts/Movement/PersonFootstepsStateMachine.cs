@@ -1,18 +1,40 @@
+using UnityEngine;
+
 namespace Movement
 {
 	public class PersonFootstepsStateMachine
 	{
 		public IState state;
 		public float timeToStep;
-		public bool playStepSound;
-		
+		public AudioClip footstepSound;
+		public AudioClip jumpSound;
+		public AudioSource audioSource;
+
 		internal float _toStepCycles = 0.05f;
 		internal float _waitingTime = 0.0f;
 
-		public PersonFootstepsStateMachine(IState state, float timeToStep)
+		public PersonFootstepsStateMachine(IState state, float timeToStep, AudioClip footstepSound, AudioClip jumpSound, AudioSource audioSource)
 		{
 			this.state = state;
 			this.timeToStep = timeToStep;
+			this.footstepSound = footstepSound;
+			this.jumpSound = jumpSound;
+			this.audioSource = audioSource;
+		}
+
+		public void Landing()
+		{
+			state.Landing(this);
+		}
+		
+		public void Jump()
+		{
+			state.Jump(this);
+		}
+		
+		public void Flying()
+		{
+			state.Flying(this);
 		}
 
 		public void Running()
@@ -29,15 +51,13 @@ namespace Movement
 		{
 			state.Standing(this);
 		}
-
-		public bool IsPlayingStepSound()
-		{
-			return playStepSound;
-		}
 	}
 
 	public interface IState
 	{
+		void Landing(PersonFootstepsStateMachine machine);
+		void Jump(PersonFootstepsStateMachine machine);
+		void Flying(PersonFootstepsStateMachine machine);
 		void Running(PersonFootstepsStateMachine machine);
 		void Walking(PersonFootstepsStateMachine machine);
 		void Standing(PersonFootstepsStateMachine machine);
@@ -45,6 +65,21 @@ namespace Movement
 
 	public class Idle : IState
 	{
+		public void Landing(PersonFootstepsStateMachine machine)
+		{
+			machine.audioSource.PlayOneShot(machine.footstepSound);
+		}
+
+		public void Jump(PersonFootstepsStateMachine machine)
+		{
+			machine.audioSource.PlayOneShot(machine.jumpSound);
+		}
+
+		public void Flying(PersonFootstepsStateMachine machine)
+		{
+			return;
+		}
+
 		public void Running(PersonFootstepsStateMachine machine)
 		{
 			Walking(machine);
@@ -52,29 +87,44 @@ namespace Movement
 		
 		public void Walking(PersonFootstepsStateMachine machine)
 		{
-			machine.playStepSound = true;
+			machine.audioSource.PlayOneShot(machine.footstepSound);
+			
 			machine.state = new WaitingForStep();
 		}
 
 		public void Standing(PersonFootstepsStateMachine machine)
 		{
-			machine.playStepSound = false;
 			return;
 		}
 	}
 
 	public class WaitingForStep : IState
 	{
+		public void Landing(PersonFootstepsStateMachine machine)
+		{
+			machine.audioSource.PlayOneShot(machine.footstepSound);
+		}
+
+		public void Jump(PersonFootstepsStateMachine machine)
+		{
+			machine.audioSource.PlayOneShot(machine.jumpSound);
+			machine.state = new Idle();
+		}
+
+		public void Flying(PersonFootstepsStateMachine machine)
+		{
+			return;
+		}
+		
 		public void Running(PersonFootstepsStateMachine machine)
 		{
 			if (machine._waitingTime < machine.timeToStep)
 			{
 				machine._waitingTime += machine._toStepCycles * 1.75f;
-				machine.playStepSound = false;
 				return;
 			}
 		
-			machine.playStepSound = true;
+			machine.audioSource.PlayOneShot(machine.footstepSound);
 			machine._waitingTime = .0f;
 		}
 		
@@ -83,11 +133,10 @@ namespace Movement
 			if (machine._waitingTime < machine.timeToStep)
 			{
 				machine._waitingTime += machine._toStepCycles;
-				machine.playStepSound = false;
 				return;
 			}
 		
-			machine.playStepSound = true;
+			machine.audioSource.PlayOneShot(machine.footstepSound);
 			machine._waitingTime = .0f;
 		}
 	
@@ -95,7 +144,7 @@ namespace Movement
 		{
 			if (machine._waitingTime > machine.timeToStep / 1.25)
 			{
-				machine.playStepSound = true;
+				machine.audioSource.PlayOneShot(machine.footstepSound);
 			}
 			
 			machine.state = new Idle();
