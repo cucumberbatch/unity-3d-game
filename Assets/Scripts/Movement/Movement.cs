@@ -9,11 +9,8 @@ namespace Movement
 		public CharacterController characterController;
 		public float walkSpeed = 1;
 		public float sprintSpeed = 2;
-		public float crouchSpeed = 0.7f;
 		
 		public float jumpHeight = 1;
-		public float standHeight = 2;
-		public float crouchHeight = 1;
 		
 		public float innerGravity = -9.81f;
 
@@ -21,6 +18,7 @@ namespace Movement
 		public LayerMask groundMask;
 		public float groundDistance;
 
+		private CharacterCrouch _crouch;
 		private Transform _transform;
 		private Vector3 _movementDirection;
 		private Vector3 _lookOrientation;
@@ -34,6 +32,7 @@ namespace Movement
 
 		private void Start()
 		{
+			_crouch = new CharacterCrouch();
 			_transform = transform;
 		}
 
@@ -86,17 +85,11 @@ namespace Movement
 				MovementState = MovementState.Jumping;
 			}
 
+			
 			// Crouching section
 			// TODO: it must feels more fluent when you release a crouching button
-			if (Input.GetKey(KeyCode.LeftControl))
-			{
-				characterController.height = crouchHeight;
-			}
-			else
-			{
-				characterController.height = standHeight;
-			}
-
+			characterController.height = _crouch.CharacterGettingUp(Input.GetKey(KeyCode.LeftControl));
+			
 			if (isGrounded && MovementState == MovementState.Flying)
 			{
 				MovementState = MovementState.Landing;
@@ -107,6 +100,7 @@ namespace Movement
 			characterController.Move(velocity * Time.deltaTime);
 
 		}
+
 	}
 }
 
