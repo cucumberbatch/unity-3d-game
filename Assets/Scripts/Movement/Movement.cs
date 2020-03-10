@@ -86,6 +86,8 @@ namespace Movement
 				MovementState = MovementState.Jumping;
 			}
 
+			// Crouching section
+			// TODO: it must feels more fluent when you release a crouching button
 			if (Input.GetKey(KeyCode.LeftControl))
 			{
 				characterController.height = crouchHeight;
