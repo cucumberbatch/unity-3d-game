@@ -7,6 +7,7 @@ public class Shooting : MonoBehaviour
 	public Transform bulletTransform;
 	public GameObject pointLight;
 	public AudioClip fire;
+	public GameObject Pistol;
 	
 
 	// public GameObject poolHandle;
@@ -73,7 +74,8 @@ public class Shooting : MonoBehaviour
 
 		} else {
 			if (Input.GetKeyDown(KeyCode.Mouse0) && currentTime >= delay) {
-		        Transform bullet = _freeBulletsPool.getBullet();
+				Pistol.GetComponent<Animator>().SetTrigger("Shoot");
+				Transform bullet = _freeBulletsPool.getBullet();
 		        bullet.gameObject.SetActive(true);
 		        
 		        bullet.transform.position = transform.position;
