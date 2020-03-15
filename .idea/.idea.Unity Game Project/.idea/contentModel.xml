@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\User\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\User\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_MyAssLoveMyLips.-1369112849.00" t="ExcludeRecursive" />
-    <e p="D:\User\Documents\MyAssLoveMyLips" t="IncludeRecursive">
+    <e p="C:\Users\User\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\User\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Unity Game Project.753752321.00" t="ExcludeRecursive" />
+    <e p="D:\User\Documents\Unity Game Project" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="MentalDreamsAssets" t="Include">
@@ -13,24 +13,31 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="AimGui.cs" t="Include" />
+          <e p="Bullet.cs" t="Include" />
           <e p="BulletsPool.cs" t="Include" />
+          <e p="CharacterHealth.cs" t="Include" />
           <e p="CharacterInventory.cs" t="Include" />
+          <e p="Enemy.cs" t="Include" />
           <e p="Memory" t="Include">
             <e p="Pool.cs" t="Include" />
           </e>
           <e p="MouseLook.cs" t="Include" />
           <e p="Movement" t="Include">
+            <e p="CharacterCrouch.cs" t="Include" />
+            <e p="CharacterFootsteps.cs" t="Include" />
             <e p="CommandListener.cs" t="Include" />
             <e p="Movement.cs" t="Include" />
+            <e p="MovementState.cs" t="Include" />
             <e p="PersonFootstepsStateMachine.cs" t="Include" />
           </e>
+          <e p="PlayerHealthBar.cs" t="Include" />
           <e p="Shooting.cs" t="Include" />
         </e>
       </e>
-      <e p="MyAssLoveMyLips.sln" t="IncludeFlat" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Unity Game Project.sln" t="IncludeFlat" />
     </e>
   </component>
 </project>
