@@ -37,18 +37,25 @@
           <e p="AnimationsPlayer.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
           <e p="BulletsPool.cs" t="Include" />
-          <e p="CharacterFootsteps.cs" t="Include" />
+          <e p="CharacterHealth.cs" t="Include" />
           <e p="CharacterInventory.cs" t="Include" />
-          <e p="CommandListener.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
-          <e p="EnemyHealth.cs" t="Include" />
-          <e p="HP_Bar_Player.cs" t="Include" />
+          <e p="Memory" t="Include">
+            <e p="Pool.cs" t="Include" />
+          </e>
           <e p="MouseLook.cs" t="Include" />
-          <e p="Movement.cs" t="Include" />
-          <e p="MovementState.cs" t="Include" />
-          <e p="PersonFootstepsStateMachine.cs" t="Include" />
+          <e p="Movement" t="Include">
+            <e p="CharacterCrouch.cs" t="Include" />
+            <e p="CharacterFootsteps.cs" t="Include" />
+            <e p="CommandListener.cs" t="Include" />
+            <e p="Movement.cs" t="Include" />
+            <e p="MovementState.cs" t="Include" />
+            <e p="PersonFootstepsStateMachine.cs" t="Include" />
+          </e>
+          <e p="PlayerHealthBar.cs" t="Include" />
+          <e p="RayGun.cs" t="Include" />
           <e p="Shooting.cs" t="Include" />
-          <e p="TransformBlender.cs" t="Include" />
+          <e p="ShotBehavior.cs" t="Include" />
         </e>
         <e p="Standard Assets" t="Include">
           <e p="2D" t="Include">

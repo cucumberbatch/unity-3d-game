@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CharacterHealth : MonoBehaviour
 {
-    public int characterHealth = 40;
+    public int characterHealth = 50;
 
     private void ApplyDamage(int amountOfDamage)
     {
@@ -26,6 +26,21 @@ public class CharacterHealth : MonoBehaviour
             }
             ApplyDamage(collision.gameObject.GetComponent<Bullet>().amountOfDamage);
         }
+    }
+
+    public void TakeDamage(int amountOfDamage)
+    {
+        characterHealth -= amountOfDamage;
+        print(gameObject.name + ": " + characterHealth);
+        if (characterHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 
     

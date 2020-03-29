@@ -1,9 +1,10 @@
 using System;
+using System.Net.Mime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.CrossPlatformInput;
 
-[RequireComponent(typeof (GUITexture))]
+[RequireComponent(typeof (MediaTypeNames.Image))]
 public class ForcedReset : MonoBehaviour
 {
     private void Update()
