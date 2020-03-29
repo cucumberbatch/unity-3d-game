@@ -5,7 +5,9 @@ public class RayGun : MonoBehaviour {
     public Camera fpsCam;
     public int damage = 10;
     public float shootingRange = 100f;
-    public float delayBetweenShots = 10;
+    
+    [Range(0.1f, 10f)] 
+    public float delayBetweenShots = 1;
     
     private float currentTimeForShot;
     private float timeStep = 0.1f;
