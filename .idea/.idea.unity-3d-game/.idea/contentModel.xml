@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Владислав\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Владислав\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_unity-3d-game.148685080.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Владислав\Documents\unity-3d-game" t="IncludeRecursive">
+    <e p="C:\Users\User\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\User\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_unity-3d-game.-339465709.00" t="ExcludeRecursive" />
+    <e p="D:\User\Documents\Unity Game Project\unity-3d-game" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -13,28 +13,8 @@
             <e p="ReadMe!.txt" t="Include" />
           </e>
         </e>
-        <e p="SampleScenes" t="Include">
-          <e p="Menu" t="Include">
-            <e p="Scripts" t="Include">
-              <e p="MenuSceneLoader.cs" t="Include" />
-              <e p="PauseMenu.cs" t="Include" />
-              <e p="SceneAndURLLoader.cs" t="Include" />
-            </e>
-          </e>
-          <e p="Scripts" t="Include">
-            <e p="CameraSwitch.cs" t="Include" />
-            <e p="LevelReset.cs" t="Include" />
-            <e p="ParticleSceneControls.cs" t="Include" />
-            <e p="PlaceTargetWithMouse.cs" t="Include" />
-            <e p="SlowMoButton.cs" t="Include" />
-          </e>
-          <e p="Shaders" t="Include">
-            <e p="Skybox-Procedural.shader" t="Include" />
-          </e>
-        </e>
         <e p="Scripts" t="Include">
           <e p="AimGui.cs" t="Include" />
-          <e p="AnimationsPlayer.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
           <e p="BulletsPool.cs" t="Include" />
           <e p="CharacterHealth.cs" t="Include" />
