@@ -262,6 +262,9 @@
           <e p="CharacterHealth.cs" t="Include" />
           <e p="CharacterInventory.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
+          <e p="Interface" t="Include">
+            <e p="ScannerRayInterface.cs" t="Include" />
+          </e>
           <e p="Memory" t="Include">
             <e p="Pool.cs" t="Include" />
           </e>
@@ -278,6 +281,7 @@
           <e p="RayGun.cs" t="Include" />
           <e p="Shooting.cs" t="Include" />
           <e p="ShotBehavior.cs" t="Include" />
+          <e p="WeaponMagazine.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

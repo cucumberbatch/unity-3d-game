@@ -8,6 +8,7 @@ TagManager:
   - PlayerBullet
   - XR
   - Enemy
+  - WeaponMagazine
   layers:
   - Default
   - TransparentFX
