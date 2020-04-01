@@ -25,7 +25,8 @@ public class CharacterInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q)) {
         	isTwoHanded = !isTwoHanded;
 			secondGun.SetActive(isTwoHanded);
-		}
+			firstGun.SetActive(!isTwoHanded);
+        }
 
     }
 }

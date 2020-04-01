@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharacterHealth : MonoBehaviour
 {
     public int characterHealth = 50;
+    public GameObject Ragdoll;
 
     private void ApplyDamage(int amountOfDamage)
     {
@@ -41,6 +42,8 @@ public class CharacterHealth : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
+        Ragdoll.SetActive(true);     //спауним труп
+        Instantiate(Ragdoll, transform.position, transform.rotation);
     }
 
     
