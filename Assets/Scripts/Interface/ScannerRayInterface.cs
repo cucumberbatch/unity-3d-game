@@ -5,10 +5,10 @@ public class ScannerRayInterface : MonoBehaviour
 {
     public Camera camera;
     public Text textDisplay;
-    public float visibleDistance = 1000;
+    public float visibleDistance = 3;
+    public Transform hitObjectTransform;
     
     private RaycastHit hit;
-    private Transform hitObjectTransform;
 
     void Update() {
         if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, visibleDistance)) {
@@ -18,10 +18,7 @@ public class ScannerRayInterface : MonoBehaviour
             {
                 WeaponMagazine magazine = hitObjectTransform.gameObject.GetComponent<WeaponMagazine>();
                 textDisplay.text = magazine.magazine.ammoType + " ammo: " + magazine.magazine.currentAmount + 
-                                   "\nTake: 'E'";
-                if (Input.GetButtonDown("Fire1")) {
-                    magazine.gameObject.SetActive(false);
-                }
+                                   "\nTake: 'MouseButton1'";
             } else {
                 textDisplay.text = hitObjectTransform.name;
             }

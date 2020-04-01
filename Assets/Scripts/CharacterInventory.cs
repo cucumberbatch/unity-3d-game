@@ -4,28 +4,53 @@ using UnityEngine;
 
 public class CharacterInventory : MonoBehaviour
 {
+	public GameObject guns;
+	public ScannerRayInterface rayInterface;
+	public Transform weaponHandler;
 
-	public GameObject firstGun;
-	public GameObject secondGun;
-
-	//public Transform rightHand;
-	//public Transform leftHand;
-
-	private bool isTwoHanded = false;
-
-    // Start is called before the first frame update
-    void Start()
+	void Start()
     {
-
+	    rayInterface = GetComponent<ScannerRayInterface>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) {
-        	isTwoHanded = !isTwoHanded;
-			secondGun.SetActive(isTwoHanded);
-		}
+	    GameObject that = rayInterface.hitObjectTransform.gameObject;
 
+	    if (Input.GetButtonDown("Fire1") && that)
+	    {
+		    OnAmmoTake(that);
+		    OnWeaponTake(that);
+	    }
+    }
+
+    public void OnWeaponTake(GameObject weapon)
+    {
+	    
+	    // if (weapon.tag.Equals("Weapon"))
+	    // {
+	    if (guns != null)
+	    {
+		    guns.SetActive(false);
+	    }
+	    
+	    // GameObject[] updatedGuns = new GameObject[guns.Length+1];
+	    // guns.CopyTo(updatedGuns, 0);
+	    guns = weapon;
+	    guns.transform.position = weaponHandler.position;
+	    guns.transform.rotation = weaponHandler.rotation;
+	    guns.transform.SetParent(weaponHandler);
+	    guns.GetComponent<Rigidbody>().useGravity = false;
+	    guns.GetComponent<MeshCollider>().enabled = false; 
+		// }
+	    
+    }
+
+    public void OnAmmoTake(GameObject ammo)
+    {
+	    if (ammo.tag.Equals("WeaponMagazine"))
+	    {
+		    
+	    }
     }
 }
