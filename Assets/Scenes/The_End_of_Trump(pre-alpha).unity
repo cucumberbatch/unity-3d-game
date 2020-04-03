@@ -5115,7 +5115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterHealth: 50
-  Ragdoll: {fileID: 0}
+  Ragdoll_RayGun: {fileID: 0}
 --- !u!114 &173147602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5128,7 +5128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b70e786f6948aa499cfb80323432562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ragdoll: {fileID: 1290278433620367437, guid: ea2832ec5da602d4b8f3e0987c97d7c3, type: 3}
+  Ragdoll: {fileID: 0}
 --- !u!54 &173147605
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5598,7 +5598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterHealth: 50
-  Ragdoll: {fileID: 0}
+  Ragdoll_RayGun: {fileID: 0}
 --- !u!33 &425103210
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7134,6 +7134,69 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1783097717}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1322164938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322164935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0894753e87a904c9a783645be14722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterHealth: 100
+  Ragdoll_RayGun: {fileID: 0}
+--- !u!114 &1322164939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322164935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b70e786f6948aa499cfb80323432562, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ragdoll: {fileID: 0}
+--- !u!195 &1322164940
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322164935}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 6
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 4
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!136 &1322164941
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322164935}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 1.9302585
+  m_Direction: 1
+  m_Center: {x: -0, y: 0.8778183, z: -0}
 --- !u!1 &1388590333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100122, guid: 5917c0e93d180a842b61d1ebc62a195c,
@@ -7153,7 +7216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterHealth: 50
-  Ragdoll: {fileID: 0}
+  Ragdoll_RayGun: {fileID: 0}
 --- !u!54 &1388590336
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7606,6 +7669,81 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7810613770606561298, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.22713614
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613770606561298, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.068790205
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613770772905052, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.096337974
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613770772905052, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.03273292
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613770844192831, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.00006487652
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613770844192831, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: -0.4176189
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613770844192831, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.005741817
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613770943442492, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.00000023660328
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613770943442492, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: 0.014115236
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613771176125037, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.096337944
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613771466603529, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.00000015513925
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613771466603529, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.00000020861627
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613771474128123, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.2768699
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613771474128123, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.00000019690067
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613771474128123, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.00000019930303
+      objectReference: {fileID: 0}
     - target: {fileID: 7810613771892679715, guid: 470ab91ac43983a46b316c63b79d8429,
         type: 3}
       propertyPath: m_Enabled
@@ -7701,6 +7839,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7810613771978090756, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.00006480474
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613771978090756, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.0057861255
+      objectReference: {fileID: 0}
     - target: {fileID: 7810613772009083841, guid: 470ab91ac43983a46b316c63b79d8429,
         type: 3}
       propertyPath: m_ConnectedMassScale
@@ -7711,6 +7859,11 @@ PrefabInstance:
       propertyPath: parent
       value: 
       objectReference: {fileID: 1322164935}
+    - target: {fileID: 7810613772009083844, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7810613772009083847, guid: 470ab91ac43983a46b316c63b79d8429,
         type: 3}
       propertyPath: m_Radius
@@ -7735,6 +7888,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.z
       value: -0.00999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613772415758401, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 0.18463306
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613772415758401, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.22713614
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810613772415758401, guid: 470ab91ac43983a46b316c63b79d8429,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -0.0687902
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470ab91ac43983a46b316c63b79d8429, type: 3}
@@ -8235,7 +8403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterHealth: 100
-  Ragdoll: {fileID: 1290278433620367437, guid: ea2832ec5da602d4b8f3e0987c97d7c3, type: 3}
+  Ragdoll_RayGun: {fileID: 1290278433620367437, guid: ea2832ec5da602d4b8f3e0987c97d7c3,
+    type: 3}
 --- !u!114 &1850288675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8248,7 +8417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b70e786f6948aa499cfb80323432562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ragdoll: {fileID: 1290278433620367437, guid: ea2832ec5da602d4b8f3e0987c97d7c3, type: 3}
+  Ragdoll: {fileID: 0}
 --- !u!195 &1850288676
 NavMeshAgent:
   m_ObjectHideFlags: 0

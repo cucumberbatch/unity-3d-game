@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class EnemyV2 : MonoBehaviour
 {
     private NavMeshAgent _agent;
     private GameObject player;
     private Transform _agentTransform;
     private Transform _target;
-    public GameObject Ragdoll;
+    
     
 
     // Start is called before the first frame update
@@ -50,10 +50,10 @@ public class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     { 
         if (other.tag == "XR")
-        {
-            gameObject.SetActive(false);      
-            Ragdoll.SetActive(true);     //спауним труп
-            Instantiate(Ragdoll, transform.position, transform.rotation);
+        {   
+            gameObject.GetComponent<Animator>().enabled = false;
+            gameObject.GetComponent<NavMeshAgent>().enabled = false;
+            
         }
     }
 }

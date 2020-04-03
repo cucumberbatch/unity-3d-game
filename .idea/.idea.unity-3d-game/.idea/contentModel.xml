@@ -20,6 +20,7 @@
           <e p="BulletsPool.cs" t="Include" />
           <e p="CharacterHealth.cs" t="Include" />
           <e p="CharacterInventory.cs" t="Include" />
+          <e p="Enemy v.2.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="Memory" t="Include">
             <e p="Pool.cs" t="Include" />
