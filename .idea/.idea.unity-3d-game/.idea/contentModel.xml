@@ -16,12 +16,13 @@
         <e p="Scripts" t="Include">
           <e p="AimGui.cs" t="Include" />
           <e p="BladeHead.cs" t="Include" />
+          <e p="BloodHoleProjector.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
           <e p="BulletsPool.cs" t="Include" />
           <e p="CharacterHealth.cs" t="Include" />
           <e p="CharacterInventory.cs" t="Include" />
-          <e p="Enemy v.2.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
+          <e p="EnemyV2.cs" t="Include" />
           <e p="Memory" t="Include">
             <e p="Pool.cs" t="Include" />
           </e>
