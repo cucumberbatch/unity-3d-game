@@ -255,6 +255,7 @@
             </e>
           </e>
         </e>
+        <e p="FPSTarget.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AimGui.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />

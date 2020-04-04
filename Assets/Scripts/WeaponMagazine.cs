@@ -23,6 +23,5 @@ public class AmmoMagazineContainer
     }
     
     public AmmoType ammoType;
-    public int capacity = 30;
     public int currentAmount = 30;
 }

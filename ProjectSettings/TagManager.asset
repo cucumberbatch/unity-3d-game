@@ -9,6 +9,7 @@ TagManager:
   - XR
   - Enemy
   - WeaponMagazine
+  - Weapon
   layers:
   - Default
   - TransparentFX

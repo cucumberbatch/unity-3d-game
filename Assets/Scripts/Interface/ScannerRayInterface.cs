@@ -5,12 +5,13 @@ public class ScannerRayInterface : MonoBehaviour
 {
     public Camera camera;
     public Text textDisplay;
-    public float visibleDistance = 3;
     public Transform hitObjectTransform;
+    public float visibleDistance = 3;
     
     private RaycastHit hit;
 
     void Update() {
+        RaycastHit hit = new RaycastHit();
         if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, visibleDistance)) {
             // Get the transform reference to the object we hit
             hitObjectTransform = hit.transform;
