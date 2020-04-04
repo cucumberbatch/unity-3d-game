@@ -8,8 +8,7 @@ TagManager:
   - PlayerBullet
   - XR
   - Enemy
-  - WeaponMagazine
-  - Weapon
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -21,7 +20,7 @@ TagManager:
   - 
   - Projectiles
   - Ground
-  - 
+  - Enemy
   - 
   - 
   - 

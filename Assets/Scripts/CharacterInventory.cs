@@ -1,107 +1,32 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class CharacterInventory : MonoBehaviour
 {
-	public GameObject guns;
-	public ScannerRayInterface rayInterface;
-	public Transform weaponHandler;
 
-	public int akAmmo = 30;
-	public int lazerAmmo = 30;
-	public int plasmaAmmo = 30;
+	public GameObject firstGun;
+	public GameObject secondGun;
 
-	public int akAmmoLimit = 120;
-	public int lazerAmmoLimit = 90;
-	public int plasmaAmmoLimit = 150;
+	//public Transform rightHand;
+	//public Transform leftHand;
 
+	private bool isTwoHanded = false;
 
-	void Start()
-	{
-		rayInterface = GetComponent<ScannerRayInterface>();
-	}
+    // Start is called before the first frame update
+    void Start()
+    {
 
-	void Update()
-	{
-		GameObject that = rayInterface.hitObjectTransform.gameObject;
+    }
 
-		if (Input.GetButtonDown("Fire1") && that)
-		{
-			if (that.tag.Equals("Weapon"))
-				OnWeaponTake(that);
-			else if (that.tag.Equals("WeaponMagazine"))
-				OnAmmoTake(that);
-		}
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q)) {
+        	isTwoHanded = !isTwoHanded;
+			secondGun.SetActive(isTwoHanded);
+			firstGun.SetActive(!isTwoHanded);
+        }
 
-	public void OnWeaponTake(GameObject weapon)
-	{
-		if (guns != null)
-		{
-			guns.SetActive(false);
-		}
-
-		guns = weapon;
-		guns.transform.position = weaponHandler.position;
-		guns.transform.rotation = weaponHandler.rotation;
-		guns.transform.SetParent(weaponHandler);
-		guns.GetComponent<Rigidbody>().useGravity = false;
-		guns.GetComponent<MeshCollider>().enabled = false;
-	}
-
-	public void OnAmmoTake(GameObject ammo)
-	{
-		AmmoMagazineContainer magazine = ammo.GetComponent<WeaponMagazine>().magazine;
-		switch (magazine.ammoType)
-		{
-			case AmmoMagazineContainer.AmmoType.AK:
-				if (akAmmo == akAmmoLimit)
-				{
-					return;
-				}
-				else if (akAmmo + magazine.currentAmount > akAmmoLimit)
-				{
-					akAmmo = akAmmoLimit;
-				}
-				else
-				{
-					akAmmo += magazine.currentAmount;
-				}
-
-				break;
-
-			case AmmoMagazineContainer.AmmoType.LASER:
-				if (lazerAmmo == lazerAmmoLimit)
-				{
-					return;
-				}
-				else if (lazerAmmo + magazine.currentAmount > lazerAmmoLimit)
-				{
-					lazerAmmo = lazerAmmoLimit;
-				}
-				else
-				{
-					lazerAmmo += magazine.currentAmount;
-				}
-
-				break;
-
-			case AmmoMagazineContainer.AmmoType.PLASMA:
-				if (plasmaAmmo == plasmaAmmoLimit)
-				{
-					return;
-				}
-				else if (plasmaAmmo + magazine.currentAmount > plasmaAmmoLimit)
-				{
-					plasmaAmmo = plasmaAmmoLimit;
-				}
-				else
-				{
-					plasmaAmmo += magazine.currentAmount;
-				}
-
-				break;
-		}
-
-		ammo.SetActive(false);
-	}
+    }
 }
