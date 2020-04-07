@@ -255,20 +255,22 @@
             </e>
           </e>
         </e>
-        <e p="BloodSpriteSpawner.cs" t="Include" />
-        <e p="CoverPoint.cs" t="Include" />
-        <e p="FPSTarget.cs" t="Include" />
-        <e p="HidingSpot.cs" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="AI" t="Include">
+            <e p="CoverPoint.cs" t="Include" />
+            <e p="HidingSpot.cs" t="Include" />
+          </e>
           <e p="AimGui.cs" t="Include" />
           <e p="BladeHead.cs" t="Include" />
           <e p="BloodHoleProjector.cs" t="Include" />
+          <e p="BloodSpriteSpawner.cs" t="Include" />
           <e p="Bullet.cs" t="Include" />
           <e p="BulletsPool.cs" t="Include" />
           <e p="CharacterHealth.cs" t="Include" />
           <e p="CharacterInventory.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemyV2.cs" t="Include" />
+          <e p="FPSTarget.cs" t="Include" />
           <e p="Interface" t="Include">
             <e p="ScannerRayInterface.cs" t="Include" />
           </e>
@@ -288,9 +290,9 @@
           <e p="RayGun.cs" t="Include" />
           <e p="Shooting.cs" t="Include" />
           <e p="ShotBehavior.cs" t="Include" />
+          <e p="SpriteSpawner.cs" t="Include" />
           <e p="WeaponMagazine.cs" t="Include" />
         </e>
-        <e p="SpriteSpawner.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />

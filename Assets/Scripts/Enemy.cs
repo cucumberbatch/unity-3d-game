@@ -12,9 +12,9 @@ public class Enemy : MonoBehaviour
     private Transform _agentTransform;
     private Transform _target;
     private Animator _animator;
-    
-    
-    void Start()
+
+
+    private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _player = GameObject.FindWithTag("Player");
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
         _animator = gameObject.GetComponent<Animator>();
     }
 
-    void Update()
+    public void Update()
     {    
         if (_agent.velocity == Vector3.zero)
         {
@@ -44,7 +44,6 @@ public class Enemy : MonoBehaviour
             }
         }
         
-        Debug.Log(transform.position - predator.transform.position);
         _agent.SetDestination(coverSpot.GetComponent<HidingSpot>().ChooseCover(transform.position, predator.transform.position).position);
     }
 
@@ -56,12 +55,5 @@ public class Enemy : MonoBehaviour
             ragdoll.SetActive(true);     //спауним труп
             Instantiate(ragdoll, transform.position, transform.rotation);
         }
-
-        // if (other.CompareTag("HidingPoint"))
-        // {
-        //     CoverPoint coverPoint = other.GetComponent<CoverPoint>();
-        //     
-        //     result = coverPoint.CalculateCoverProbability(transform.position, predator.transform.position);
-        // }
     }
 }
