@@ -7,24 +7,21 @@ using UnityEngine.AI;
 public class EnemyV2 : MonoBehaviour
 {
     private NavMeshAgent _agent;
-    private GameObject player;
+    private GameObject _player;
     private Transform _agentTransform;
     private Transform _target;
     
-    
-
-    // Start is called before the first frame update
     void Start()
     {
+        _player = GameObject.FindWithTag("Player");
         _agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindWithTag("Player");
         _agentTransform = GetComponent<Transform>();
-        _target = player.GetComponent<Transform>();  //преследуем игрока
+        _target = _player.GetComponent<Transform>();  //преследуем игрока
     }
 
-    // Update is called once per frame
     void Update()
-    {    if (_agent.velocity == Vector3.zero)
+    {    
+        if (_agent.velocity == Vector3.zero)
         {
             gameObject.GetComponent<Animator>().SetTrigger("Idle");
         }
@@ -44,12 +41,12 @@ public class EnemyV2 : MonoBehaviour
         }
             
             
-        _agent.SetDestination(player.transform.position);
+        // _agent.SetDestination(player.transform.position);
     }
 
     private void OnTriggerEnter(Collider other)
     { 
-        if (other.tag == "XR")
+        if (other.CompareTag("XR"))
         {   
             gameObject.GetComponent<Animator>().enabled = false;
             gameObject.GetComponent<NavMeshAgent>().enabled = false;
