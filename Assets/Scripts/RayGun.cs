@@ -7,7 +7,7 @@ public class RayGun : MonoBehaviour {
     public float shootingRange = 100f;
     [Range(0.1f, 10f)] 
     public float delayBetweenShots = 0.5f;
-    public GameObject TraceBullet;
+    public ParticleSystem TraceBullet;
 
     private float currentTimeForShot;
     private float timeStep = 0.1f;
@@ -37,7 +37,7 @@ public class RayGun : MonoBehaviour {
 
         if (isParticleEmitted)
         {
-            TraceBullet.GetComponent<ParticleSystem>().Emit(1);
+            TraceBullet.Emit(1);
         }
     }
 

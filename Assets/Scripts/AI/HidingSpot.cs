@@ -17,7 +17,6 @@ public class HidingSpot : MonoBehaviour
             
             if (temp > maxProbability)
             {
-                Debug.Log(zone.transform);
                 cover = zone.transform;
                 maxProbability = temp;
             }
