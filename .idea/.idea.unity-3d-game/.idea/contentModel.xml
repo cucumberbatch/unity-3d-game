@@ -269,6 +269,7 @@
           <e p="CharacterHealth.cs" t="Include" />
           <e p="CharacterInventory.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
+          <e p="EnemySphere.cs" t="Include" />
           <e p="EnemyV2.cs" t="Include" />
           <e p="FPSTarget.cs" t="Include" />
           <e p="Interface" t="Include">
