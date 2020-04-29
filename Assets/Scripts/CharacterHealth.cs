@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterHealth : MonoBehaviour
 {
     public int characterHealth = 50;
-
+    
     private void ApplyDamage(int amountOfDamage)
     {
         characterHealth -= amountOfDamage;
