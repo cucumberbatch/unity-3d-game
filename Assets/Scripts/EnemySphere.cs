@@ -6,7 +6,7 @@ public class EnemySphere : MonoBehaviour
     public Transform predator;
     public GameObject hidingSpot;
     public float speed = 1;
-    
+
     [Header("State Materials")] 
     public Material onSteadyMaterial;
     public Material onAttackMaterial;
@@ -24,7 +24,12 @@ public class EnemySphere : MonoBehaviour
 
     private void Update()
     {
-        Vector3 impulse = 0.0001f * (transform.position - hidingSpot.GetComponent<HidingSpot>().ChooseCover(transform.position, predator.position).position);
+        var impulse = 0.0001f *
+                      (transform.position -
+                       hidingSpot.GetComponent<HidingSpot>()
+                           .ChooseCover(transform.position,
+                               predator.position)
+                           .position);
         
         _rigidbody.AddForce(impulse, ForceMode.Impulse);
     }

@@ -3,11 +3,11 @@
 public class SpriteSpawner : MonoBehaviour
 {
     public GameObject[] spritesPrefab;
-    public float surfaceLayerOffset = 0.01f;
+    public float surfaceLayerOffset = 0.0001f;
 
     public void SpawnSpriteOnHit(RaycastHit hit)
     {
-        InstantiateSprite(spritesPrefab[Random.Range(0, spritesPrefab.Length)], hit);
+        SpawnProjector(spritesPrefab[Random.Range(0, spritesPrefab.Length)], hit);
     }
 
     public void SpawnOtherSpriteOnHit(GameObject sprite, RaycastHit hit)
@@ -17,25 +17,28 @@ public class SpriteSpawner : MonoBehaviour
 
     public void SpawnProjector(GameObject projector, RaycastHit hit)
     {
-        float offsetByRange = 1 / Mathf.Pow((hit.point - transform.position).magnitude, 0.5f);
+        // var offsetByRange = 1 / Mathf.Pow((hit.point - transform.position).magnitude, 0.5f);
         
-        GameObject projectorInstance = InstantiateProjector(projector, hit);
+        var projectorInstance = InstantiateProjector(projector, hit);
         
-        projectorInstance.GetComponent<Projector>().orthographicSize += offsetByRange;
+        // projectorInstance.GetComponent<Projector>().orthographicSize += offsetByRange;
     }
 
-    private void InstantiateSprite(GameObject sprite, RaycastHit hit)
+    private GameObject InstantiateSprite(GameObject sprite, RaycastHit hit)
     {
-        Instantiate(
+        var spriteInstance = Instantiate(
             sprite, 
             hit.point + hit.normal * surfaceLayerOffset, 
             Quaternion.FromToRotation(Vector3.up, hit.normal));
+        
+        return spriteInstance;
     }
 
     private GameObject InstantiateProjector(GameObject projector, RaycastHit hit)
     {
-        GameObject projectorInstance = Instantiate(
-            projector,hit.point + hit.normal * 0.25f,
+        var projectorInstance = Instantiate(
+            projector, 
+            hit.point + hit.normal * surfaceLayerOffset,
             Quaternion.FromToRotation(-Vector3.forward, hit.normal));
 
         projectorInstance.transform.parent = transform;

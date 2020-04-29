@@ -4,6 +4,7 @@ public class RayGun : MonoBehaviour {
     
     public Camera fpsCamera;
     public int damage = 10;
+    public float impulseFactor = 1;
     public float shootingRange = 100f;
     [Range(0.1f, 10f)] 
     public float delayBetweenShots = 0.5f;
@@ -43,21 +44,23 @@ public class RayGun : MonoBehaviour {
 
     private void ApplyShootingStrategy()
     {
-        Transform hittedObject = hit.transform;
+        var hittedObject = hit.transform;
         
         // Skip if hitted object is null
         if (!hittedObject) return;
+        
+        Transform bodyPart = null;
 
         switch (hittedObject.gameObject.layer)
         {
             // Check for enemy collision
             case 10 : 
-                Transform bodyPart = hittedObject;
+                bodyPart = hittedObject;
 
-                while (!hittedObject.CompareTag("Enemy"))
-                {
-                    hittedObject = hittedObject.parent;
-                }
+                // while (!hittedObject.CompareTag("Enemy"))
+                // {
+                //     hittedObject = hittedObject.parent;
+                // }
 
                 hittedObject.GetComponent<CharacterHealth>().TakeDamage(damage);
                 hittedObject.GetComponent<BloodSpriteSpawner>().SpawnSpriteOnHit(hit, fpsCamera.transform.forward, bodyPart);
@@ -67,6 +70,13 @@ public class RayGun : MonoBehaviour {
             case 11 :
                 hittedObject.gameObject.GetComponent<SpriteSpawner>().SpawnSpriteOnHit(hit);
                 break;
+        }
+
+        // var hittedObjectPhysics = bodyPart.GetComponent<Rigidbody>();
+
+        if (hittedObject.GetComponent<Rigidbody>() != null)
+        {
+            hittedObject.GetComponent<Rigidbody>().AddForce(hit.normal * -impulseFactor, ForceMode.Impulse);
         }
     }
 }
