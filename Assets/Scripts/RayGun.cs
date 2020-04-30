@@ -3,6 +3,7 @@
 public class RayGun : MonoBehaviour {
     
     public Camera fpsCam;
+    public GameObject aim;
     public int damage = 10;
     public float shootingRange = 100f;
     
@@ -27,7 +28,7 @@ public class RayGun : MonoBehaviour {
     
     void Shoot ()
     {
-        if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, shootingRange))
+        if (Physics.Raycast(aim.transform.position, fpsCam.transform.forward, out hit, shootingRange))
         {
             characterHealth = hit.transform.GetComponent<CharacterHealth>();
             if (characterHealth != null)
