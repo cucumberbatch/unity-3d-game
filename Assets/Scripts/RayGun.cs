@@ -1,41 +1,79 @@
 ﻿using UnityEngine;
-
+    
 public class RayGun : MonoBehaviour {
     
-    public Camera fpsCam;
-    public GameObject aim;
+    public Camera fpsCamera;
     public int damage = 10;
+    public float impulseFactor = 1;
     public float shootingRange = 100f;
-    
     [Range(0.1f, 10f)] 
-    public float delayBetweenShots = 1;
-    
+    public float delayBetweenShots = 0.5f;
+    public ParticleSystem TraceBullet;
+
     private float currentTimeForShot;
     private float timeStep = 0.1f;
     private RaycastHit hit;
-    private CharacterHealth characterHealth;
-    
-    // Update is called once per frame
-    void Update () {
-        if (Input.GetKey(KeyCode.Mouse0) && currentTimeForShot >= delayBetweenShots)
-        {
-            Shoot();
-            currentTimeForShot = 0;
-        }
-        
-        currentTimeForShot += timeStep;
-    }
-    
-    void Shoot ()
+
+    private void Update()
     {
-        if (Physics.Raycast(aim.transform.position, aim.transform.forward, out hit, shootingRange))
+        currentTimeForShot += timeStep;
+
+        bool isMouseButtonPressed   = Input.GetMouseButton(0);
+        bool isRaycastHitSomething  = Physics.Raycast(fpsCamera.ScreenPointToRay(Input.mousePosition), out hit, shootingRange);
+        bool isReadyForShot         = currentTimeForShot >= delayBetweenShots;
+        bool isParticleEmitted      = false;
+        
+        if (!isMouseButtonPressed) return;
+     
+        if (isReadyForShot)
         {
-            characterHealth = hit.transform.GetComponent<CharacterHealth>();
-            if (characterHealth != null)
+            currentTimeForShot = 0;
+            isParticleEmitted = true;
+
+            if (isRaycastHitSomething)
             {
-                characterHealth.TakeDamage(damage);
+                ApplyShootingStrategy();
             }
-            Debug.Log(hit.transform.name);
+        }
+
+        if (isParticleEmitted)
+        {
+            TraceBullet.Emit(1);
+        }
+    }
+
+    private void ApplyShootingStrategy()
+    {
+        var hittedObject = hit.transform;
+        
+        // Skip if hitted object is null
+        if (!hittedObject) return;
+        
+        switch (hittedObject.gameObject.layer)
+        {
+            // Check for enemy collision
+            case 10 : 
+                hittedObject.GetComponent<BloodSpriteSpawner>().SpawnSpriteOnHit(hit, fpsCamera.transform.forward, hittedObject);
+
+                while (!hittedObject.CompareTag("Enemy"))
+                {
+                    hittedObject = hittedObject.parent;
+                }
+
+                hittedObject.GetComponent<CharacterHealth>().TakeDamage(damage);
+                break;
+            
+            // Check for wall collision
+            case 11 :
+                hittedObject.gameObject.GetComponent<SpriteSpawner>().SpawnSpriteOnHit(hit);
+                break;
+        }
+
+        var hittedObjectRigidBody = hittedObject.GetComponent<Rigidbody>();
+
+        if (hittedObjectRigidBody != null)
+        {
+            hittedObjectRigidBody.AddForce(hit.normal * -impulseFactor, ForceMode.Impulse);
         }
     }
 }

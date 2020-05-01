@@ -8,6 +8,8 @@ TagManager:
   - PlayerBullet
   - XR
   - Enemy
+  - Wall
+  - HidingPoint
   layers:
   - Default
   - TransparentFX
@@ -19,8 +21,8 @@ TagManager:
   - 
   - Projectiles
   - Ground
-  - 
-  - 
+  - Enemy
+  - Wall
   - 
   - 
   - 

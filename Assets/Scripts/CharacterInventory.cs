@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharacterInventory : MonoBehaviour
 {
@@ -25,7 +23,8 @@ public class CharacterInventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q)) {
         	isTwoHanded = !isTwoHanded;
 			secondGun.SetActive(isTwoHanded);
-		}
+			firstGun.SetActive(!isTwoHanded);
+        }
 
     }
 }

@@ -82,7 +82,7 @@ namespace Movement
 			if (Input.GetButtonDown("Jump") && isGrounded)
 			{
 				velocity.y = (float) Math.Sqrt(jumpHeight * -2f * innerGravity);
-				MovementState = MovementState.Jumping;
+			//	MovementState = MovementState.Jumping;
 			}
 
 			
@@ -94,7 +94,7 @@ namespace Movement
 			{
 				MovementState = MovementState.Landing;
 			}
-
+			
 			velocity.y += innerGravity * Time.deltaTime;
 
 			characterController.Move(velocity * Time.deltaTime);
