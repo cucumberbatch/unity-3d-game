@@ -16,13 +16,13 @@ public class RayGun : MonoBehaviour {
 
     private void Update()
     {
+        currentTimeForShot += timeStep;
+
         bool isMouseButtonPressed   = Input.GetMouseButton(0);
         bool isRaycastHitSomething  = Physics.Raycast(fpsCamera.ScreenPointToRay(Input.mousePosition), out hit, shootingRange);
         bool isReadyForShot         = currentTimeForShot >= delayBetweenShots;
         bool isParticleEmitted      = false;
         
-        currentTimeForShot += timeStep;
-
         if (!isMouseButtonPressed) return;
      
         if (isReadyForShot)
@@ -49,21 +49,18 @@ public class RayGun : MonoBehaviour {
         // Skip if hitted object is null
         if (!hittedObject) return;
         
-        Transform bodyPart = null;
-
         switch (hittedObject.gameObject.layer)
         {
             // Check for enemy collision
             case 10 : 
-                bodyPart = hittedObject;
+                hittedObject.GetComponent<BloodSpriteSpawner>().SpawnSpriteOnHit(hit, fpsCamera.transform.forward, hittedObject);
 
-                // while (!hittedObject.CompareTag("Enemy"))
-                // {
-                //     hittedObject = hittedObject.parent;
-                // }
+                while (!hittedObject.CompareTag("Enemy"))
+                {
+                    hittedObject = hittedObject.parent;
+                }
 
                 hittedObject.GetComponent<CharacterHealth>().TakeDamage(damage);
-                hittedObject.GetComponent<BloodSpriteSpawner>().SpawnSpriteOnHit(hit, fpsCamera.transform.forward, bodyPart);
                 break;
             
             // Check for wall collision
@@ -72,11 +69,11 @@ public class RayGun : MonoBehaviour {
                 break;
         }
 
-        // var hittedObjectPhysics = bodyPart.GetComponent<Rigidbody>();
+        var hittedObjectRigidBody = hittedObject.GetComponent<Rigidbody>();
 
-        if (hittedObject.GetComponent<Rigidbody>() != null)
+        if (hittedObjectRigidBody != null)
         {
-            hittedObject.GetComponent<Rigidbody>().AddForce(hit.normal * -impulseFactor, ForceMode.Impulse);
+            hittedObjectRigidBody.AddForce(hit.normal * -impulseFactor, ForceMode.Impulse);
         }
     }
 }
