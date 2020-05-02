@@ -42,6 +42,16 @@ public class RayGun : MonoBehaviour {
         }
     }
 
+    private void ApplyImpulseToObject()
+    {
+        var hittedObjectRigidBody = hit.transform.GetComponent<Rigidbody>();
+
+        if (hittedObjectRigidBody != null)
+        {
+            hittedObjectRigidBody.AddForce(hit.normal * -impulseFactor, ForceMode.Impulse);
+        }
+    }
+
     private void ApplyShootingStrategy()
     {
         var hittedObject = hit.transform;
@@ -63,17 +73,16 @@ public class RayGun : MonoBehaviour {
                 hittedObject.GetComponent<CharacterHealth>().TakeDamage(damage);
                 break;
             
-            // Check for wall collision
-            case 11 :
-                hittedObject.gameObject.GetComponent<SpriteSpawner>().SpawnSpriteOnHit(hit);
+            // Check for other collision
+            default :
+                var spriteSpawner = hittedObject.gameObject.GetComponent<SpriteSpawner>();
+                
+                if (!spriteSpawner) break;
+                
+                ApplyImpulseToObject();
+                
+                spriteSpawner.SpawnSpriteOnHit(hit);
                 break;
-        }
-
-        var hittedObjectRigidBody = hittedObject.GetComponent<Rigidbody>();
-
-        if (hittedObjectRigidBody != null)
-        {
-            hittedObjectRigidBody.AddForce(hit.normal * -impulseFactor, ForceMode.Impulse);
         }
     }
 }
