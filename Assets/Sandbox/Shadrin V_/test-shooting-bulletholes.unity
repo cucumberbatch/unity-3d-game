@@ -5347,8 +5347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterHealth: 50
-  Ragdoll_RayGun: {fileID: 1290278433620367437, guid: ea2832ec5da602d4b8f3e0987c97d7c3,
-    type: 3}
+  Ragdoll_RayGun: {fileID: 0}
 --- !u!114 &173147602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5362,7 +5361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ragdoll: {fileID: 0}
-  coverSpot: {fileID: 1502780016}
+  coverSpot: {fileID: 0}
   target: {fileID: 0}
   runSpeed: 6
   walkSpeed: 3
@@ -6035,12 +6034,6 @@ Rigidbody:
 --- !u!4 &379003370 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3095965971582656422, guid: 725e895f3349dd140aeae57021144251,
-    type: 3}
-  m_PrefabInstance: {fileID: 84109151}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &379003372 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7512062042957700400, guid: 725e895f3349dd140aeae57021144251,
     type: 3}
   m_PrefabInstance: {fileID: 84109151}
   m_PrefabAsset: {fileID: 0}
@@ -7351,6 +7344,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.46150336, y: 0.5146722, z: 0.46150336}
   m_Center: {x: 0.23075181, y: 0.13234003, z: -0.03522311}
+--- !u!198 &695761973 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7512062042957700400, guid: 725e895f3349dd140aeae57021144251,
+    type: 3}
+  m_PrefabInstance: {fileID: 84109151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &707412677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7725,10 +7724,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpsCamera: {fileID: 977950799}
   damage: 10
-  impulseFactor: 4
+  impulseFactor: 1
   shootingRange: 100
   delayBetweenShots: 1
-  TraceBullet: {fileID: 379003372}
+  TraceBullet: {fileID: 695761973}
 --- !u!4 &859212951
 Transform:
   m_ObjectHideFlags: 0
@@ -8119,9 +8118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b70e786f6948aa499cfb80323432562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ragdoll: {fileID: 0}
-  coverSpot: {fileID: 0}
-  target: {fileID: 0}
+  ragdoll: {fileID: 173147600}
+  coverSpot: {fileID: 1502780016}
+  target: {fileID: 425103211}
   runSpeed: 6
   walkSpeed: 3
 --- !u!114 &1019843455
@@ -8137,8 +8136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterHealth: 200
-  Ragdoll_RayGun: {fileID: 1290278433620367437, guid: ea2832ec5da602d4b8f3e0987c97d7c3,
-    type: 3}
+  Ragdoll_RayGun: {fileID: 0}
 --- !u!136 &1019843456
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9041,8 +9039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterHealth: 100
-  Ragdoll_RayGun: {fileID: 222810124933417075, guid: 517e467466e377e4fa43e3c46c21283a,
-    type: 3}
+  Ragdoll_RayGun: {fileID: 0}
 --- !u!114 &1322164939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9055,9 +9052,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b70e786f6948aa499cfb80323432562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ragdoll: {fileID: 222810124933417075, guid: 517e467466e377e4fa43e3c46c21283a, type: 3}
+  ragdoll: {fileID: 1322164935}
   coverSpot: {fileID: 1502780016}
-  target: {fileID: 0}
+  target: {fileID: 425103211}
   runSpeed: 6
   walkSpeed: 3
 --- !u!195 &1322164940
@@ -11411,8 +11408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterHealth: 100
-  Ragdoll_RayGun: {fileID: 1290278433620367437, guid: ea2832ec5da602d4b8f3e0987c97d7c3,
-    type: 3}
+  Ragdoll_RayGun: {fileID: 0}
 --- !u!114 &1850288675
 MonoBehaviour:
   m_ObjectHideFlags: 0
