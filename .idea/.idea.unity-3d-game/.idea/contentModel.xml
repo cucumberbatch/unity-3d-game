@@ -255,6 +255,7 @@
             </e>
           </e>
         </e>
+        <e p="HidingSpotLocationHelper.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AI" t="Include">
             <e p="CoverPoint.cs" t="Include" />
