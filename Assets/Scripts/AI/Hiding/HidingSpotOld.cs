@@ -1,7 +1,7 @@
-﻿using System;
+﻿﻿using System;
 using UnityEngine;
 
-public class HidingSpot : MonoBehaviour
+public class HidingSpotOld : MonoBehaviour
 {
     public GameObject[] triggerZone;
 

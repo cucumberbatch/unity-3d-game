@@ -3,7 +3,6 @@ using UnityEngine.AI;
 
 public class EnemySphere : MonoBehaviour
 {
-    public float speed = 1;
     public Transform predator;
     public HidingSpotLocationHelper helper;
 
@@ -15,7 +14,6 @@ public class EnemySphere : MonoBehaviour
     private Rigidbody _rigidBody;
     private MeshRenderer _meshRenderer;
     private NavMeshAgent _agent;
-
     private Vector3 _previousPredatorPosition;
 
 
@@ -31,7 +29,8 @@ public class EnemySphere : MonoBehaviour
     {
         if (predator.position != _previousPredatorPosition)
         {
-            helper.GeneratePredatorPositionUpdateEvent(); 
+            _previousPredatorPosition = predator.position;
+            helper.GeneratePredatorPositionUpdateEvent();
         }
         
         Vector3 selectedDestinationPoint = helper.GetVictimHidingSpotTransform(transform, predator).position;
@@ -42,9 +41,16 @@ public class EnemySphere : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         /* Set reference to an entered location object */
-        if (other.gameObject.layer == AI.Layers.CoverLayer)
+        if (other.tag.Equals("LocationBox"))
         {
             helper = other.GetComponent<HidingSpotLocationHelper>();
         }
+    }
+
+    private void SwitchAttackStatement()
+    {
+        _isAttack = !_isAttack;
+        
+        _meshRenderer.material = _isAttack ? onAttackMaterial : onSteadyMaterial;
     }
 }

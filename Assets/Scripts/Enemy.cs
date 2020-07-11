@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     public void Update()
     {
         
-        _agent.SetDestination(coverSpot.GetComponent<HidingSpot>().ChooseCover(transform.position, target.transform.position).position);
+        _agent.SetDestination(coverSpot.GetComponent<HidingSpotOld>().ChooseCover(transform.position, target.transform.position).position);
         ChooseAnimatorStrategy();
     }
 

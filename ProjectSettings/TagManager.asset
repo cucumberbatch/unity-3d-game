@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Wall
   - HidingPoint
+  - LocationBox
   layers:
   - Default
   - TransparentFX
