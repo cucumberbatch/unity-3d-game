@@ -14,6 +14,7 @@ public class EnemySphere : MonoBehaviour
     private Rigidbody _rigidBody;
     private MeshRenderer _meshRenderer;
     private NavMeshAgent _agent;
+    private HidingSpot _reservedSpot;
     private Vector3 _previousPredatorPosition;
 
 
@@ -32,8 +33,10 @@ public class EnemySphere : MonoBehaviour
             _previousPredatorPosition = predator.position;
             helper.GeneratePredatorPositionUpdateEvent();
         }
+
+        _reservedSpot = helper.GetVictimHidingSpotTransform(transform, predator).GetComponent<HidingSpot>();
         
-        Vector3 selectedDestinationPoint = helper.GetVictimHidingSpotTransform(transform, predator).position;
+        Vector3 selectedDestinationPoint = _reservedSpot.transform.position;
         
         _agent.SetDestination(selectedDestinationPoint);
     }
@@ -52,5 +55,13 @@ public class EnemySphere : MonoBehaviour
         _isAttack = !_isAttack;
         
         _meshRenderer.material = _isAttack ? onAttackMaterial : onSteadyMaterial;
+    }
+
+    public void GetOutOfHidingSpot()
+    {
+        if (!_reservedSpot) return;
+        
+        _reservedSpot.GetOut();
+        _reservedSpot = null;
     }
 }

@@ -49,7 +49,7 @@ public class HidingSpot : MonoBehaviour
     // TODO: need more complicated logic of this mechanic for different cases
     public void TakeCover(Transform victim)
     {
-        // _hidingVictimTransform = victim;
+        _hidingVictimTransform = victim;
     }
     
     public float GetCoverageAmount()
@@ -57,6 +57,10 @@ public class HidingSpot : MonoBehaviour
         return _coverageAmount;
     }
 
+    public void GetOut()
+    {
+        _hidingVictimTransform = null;
+    }
 }
 
 namespace AI

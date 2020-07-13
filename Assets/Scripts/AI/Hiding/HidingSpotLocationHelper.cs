@@ -60,20 +60,33 @@ public class HidingSpotLocationHelper : MonoBehaviour
 
         foreach (var spot in _hidingSpots)
         {
-            if (spot.IsTaken()) continue;
+            if (spot.IsTaken() && !spot.IsTakenBy(victim)) continue;
             
             float thatCoverageAmount = spot.GetCoverageAmount();
             
-            if (!spot.IsTakenBy(victim) && thatCoverageAmount > preferableSpotCoverageAmount)
+            if (thatCoverageAmount > preferableSpotCoverageAmount)
             {
                 preferableSpot = spot;
                 preferableSpotCoverageAmount = thatCoverageAmount;
+                
+                // needs to add more logic of making decisions
+                // something like ChangingSpotAdvantage(victim, predator, spot) that returns approvement that it is safe
             }
         }
 
-        preferableSpot.TakeCover(victim);
+        TakeCover(preferableSpot, victim);
         
         return preferableSpot.transform;
+    }
+
+    private void TakeCover(HidingSpot preferableSpot, Transform victim)
+    {
+        // foreach (var spot in _hidingSpots)
+        // {
+        //     if (spot.IsTakenBy(victim)) spot.GetOut();
+        // }
+        victim.GetComponent<EnemySphere>().GetOutOfHidingSpot();
+        preferableSpot.TakeCover(victim);
     }
 
     private void CalculateCoverage(Transform predator)
