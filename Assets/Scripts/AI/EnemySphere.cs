@@ -64,4 +64,9 @@ public class EnemySphere : MonoBehaviour
         _reservedSpot.GetOut();
         _reservedSpot = null;
     }
+
+    public HidingSpot GetHidingSpot()
+    {
+        return _reservedSpot;
+    }
 }

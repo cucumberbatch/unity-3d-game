@@ -259,6 +259,7 @@
           <e p="AI" t="Include">
             <e p="EnemySphere.cs" t="Include" />
             <e p="Hiding" t="Include">
+              <e p="CoverageProcessor.cs" t="Include" />
               <e p="HidingSpot.cs" t="Include" />
               <e p="HidingSpotLocationHelper.cs" t="Include" />
               <e p="HidingSpotOld.cs" t="Include" />

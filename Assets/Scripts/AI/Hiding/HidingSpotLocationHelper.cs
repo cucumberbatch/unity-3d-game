@@ -4,27 +4,14 @@ using UnityEngine;
 public class HidingSpotLocationHelper : MonoBehaviour
 {
     private HashSet<ILocationEvent> _events;
-    private HidingSpot[] _hidingSpots;
+    private CoverageProcessor _processor;
     private bool _isCoverageCalculated;
     
-    /* A bunch of initialised events */
-    private readonly ILocationEvent _predatorPositionUpdateEvent = new PredatorPositionUpdateEvent();
-
+    
     private void Start()
     {
         _events = new HashSet<ILocationEvent>();
-        
-        Vector3 halfExtents = GetComponent<BoxCollider>().size / 2;
-        
-        /* Get all colliders at position and in a range of trigger zone of this object */
-        Collider[] colliders = Physics.OverlapBox(transform.position, halfExtents, transform.rotation, AI.Layers.CoverLayer);
-        
-        _hidingSpots = new HidingSpot[colliders.Length];
-        
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            _hidingSpots[i] = colliders[i].GetComponent<HidingSpot>();
-        }
+        _processor = new CoverageProcessor(this);
     }
 
     private void LateUpdate()
@@ -43,63 +30,23 @@ public class HidingSpotLocationHelper : MonoBehaviour
     {
         if (!_isCoverageCalculated)
         {
-            CalculateCoverage(predator);
+            _processor.CalculateCoverage(victim, predator);
             _isCoverageCalculated = true;
         }
         
-        return GetHidingSpotTransform(victim);
+        return _processor.GetHidingSpotTransform(victim, predator);
     }
 
-    /* Select the most useful hiding spot */
-    private Transform GetHidingSpotTransform(Transform victim)
+    //---------- ??? -----------------
+    public void TakeCover(HidingSpot preferableSpot, Transform victim)
     {
-        if (_hidingSpots.Length == 0) return null;
-        
-        HidingSpot preferableSpot = _hidingSpots[0];
-        float preferableSpotCoverageAmount = preferableSpot.GetCoverageAmount();
-
-        foreach (var spot in _hidingSpots)
-        {
-            if (spot.IsTaken() && !spot.IsTakenBy(victim)) continue;
-            
-            float thatCoverageAmount = spot.GetCoverageAmount();
-            
-            if (thatCoverageAmount > preferableSpotCoverageAmount)
-            {
-                preferableSpot = spot;
-                preferableSpotCoverageAmount = thatCoverageAmount;
-                
-                // needs to add more logic of making decisions
-                // something like ChangingSpotAdvantage(victim, predator, spot) that returns approvement that it is safe
-            }
-        }
-
-        TakeCover(preferableSpot, victim);
-        
-        return preferableSpot.transform;
-    }
-
-    private void TakeCover(HidingSpot preferableSpot, Transform victim)
-    {
-        // foreach (var spot in _hidingSpots)
-        // {
-        //     if (spot.IsTakenBy(victim)) spot.GetOut();
-        // }
         victim.GetComponent<EnemySphere>().GetOutOfHidingSpot();
         preferableSpot.TakeCover(victim);
     }
 
-    private void CalculateCoverage(Transform predator)
-    {
-        foreach (var spot in _hidingSpots)
-        {
-            spot.CalculateCoverageAmount(predator);
-        }
-    }
-
     public void GeneratePredatorPositionUpdateEvent()
     {
-        _events.Add(_predatorPositionUpdateEvent);
+        _events.Add(LocationEvent.PredatorPositionUpdateEvent);
     }
 
     public void RegisterPredatorPositionUpdate()
@@ -107,6 +54,7 @@ public class HidingSpotLocationHelper : MonoBehaviour
         _isCoverageCalculated = false;
     }
 }
+
 
 public interface ILocationEvent
 {
@@ -119,4 +67,11 @@ public class PredatorPositionUpdateEvent : ILocationEvent
     {
         helper.RegisterPredatorPositionUpdate();
     }
+}
+
+public static class LocationEvent
+{
+    /* A bunch of initialised events */
+    public static readonly ILocationEvent PredatorPositionUpdateEvent = new PredatorPositionUpdateEvent();
+
 }
