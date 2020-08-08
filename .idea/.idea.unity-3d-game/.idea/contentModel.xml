@@ -27,7 +27,7 @@
           <e p="Movement" t="Include">
             <e p="CharacterCrouch.cs" t="Include" />
             <e p="CharacterFootsteps.cs" t="Include" />
-            <e p="CommandListener.cs" t="Include" />
+            <e p="FootstepsStateMachineCommand.cs" t="Include" />
             <e p="Movement.cs" t="Include" />
             <e p="MovementState.cs" t="Include" />
             <e p="PersonFootstepsStateMachine.cs" t="Include" />

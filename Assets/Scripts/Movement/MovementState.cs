@@ -3,10 +3,10 @@ namespace Movement
 	public enum MovementState
 	{
 		Idle,
-		Walking,
-		Running,
-		Jumping,
-		Flying,
+		Walk,
+		Run,
+		Jump,
+		Fly,
 		Landing
 	}
 }

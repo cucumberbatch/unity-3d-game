@@ -58,14 +58,14 @@ namespace Movement
 					velocity.y = -2f;
 				}
 				
-				if (Input.GetKey(KeyCode.LeftShift))
+				if (Input.GetKey(KeyCode.LeftShift) && move.magnitude > 0.1f)
 				{
 					move *= sprintSpeed;
-					MovementState = MovementState.Running;
+					MovementState = MovementState.Run;
 				}
 				else if (Math.Abs(move.magnitude) > 0.25)
 				{
-					MovementState = MovementState.Walking;
+					MovementState = MovementState.Walk;
 				}
 				else
 				{
@@ -74,7 +74,7 @@ namespace Movement
 			}
 			else
 			{
-				MovementState = MovementState.Flying;
+				MovementState = MovementState.Fly;
 			}
 			
 			characterController.Move(move * (walkSpeed * Time.deltaTime));
@@ -82,7 +82,7 @@ namespace Movement
 			if (Input.GetButtonDown("Jump") && isGrounded)
 			{
 				velocity.y = (float) Math.Sqrt(jumpHeight * -2f * innerGravity);
-				MovementState = MovementState.Jumping;
+				MovementState = MovementState.Jump;
 			}
 
 			
@@ -90,7 +90,7 @@ namespace Movement
 			// TODO: it must feels more fluent when you release a crouching button
 			characterController.height = _crouch.CharacterGettingUp(Input.GetKey(KeyCode.LeftControl));
 			
-			if (isGrounded && MovementState == MovementState.Flying)
+			if (isGrounded && MovementState == MovementState.Fly)
 			{
 				MovementState = MovementState.Landing;
 			}
