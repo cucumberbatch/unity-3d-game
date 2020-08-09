@@ -82,7 +82,7 @@ namespace Movement
 			if (Input.GetButtonDown("Jump") && isGrounded)
 			{
 				velocity.y = (float) Math.Sqrt(jumpHeight * -2f * innerGravity);
-				MovementState = MovementState.Jump;
+				MovementState = MovementState.Fly;
 			}
 
 			
@@ -90,11 +90,6 @@ namespace Movement
 			// TODO: it must feels more fluent when you release a crouching button
 			characterController.height = _crouch.CharacterGettingUp(Input.GetKey(KeyCode.LeftControl));
 			
-			if (isGrounded && MovementState == MovementState.Fly)
-			{
-				MovementState = MovementState.Landing;
-			}
-
 			velocity.y += innerGravity * Time.deltaTime;
 
 			characterController.Move(velocity * Time.deltaTime);

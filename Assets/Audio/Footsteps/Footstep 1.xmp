@@ -37,9 +37,9 @@
          </dc:title>
          <dc:format>audio/ogg; codec="vorbis"</dc:format>
          <xmp:CreateDate>2014</xmp:CreateDate>
-         <xmp:MetadataDate>2020-08-09T03:05:59+06:00</xmp:MetadataDate>
-         <xmp:ModifyDate>2020-08-09T03:05:59+06:00</xmp:ModifyDate>
-         <xmpMM:InstanceID>xmp.iid:b7933fa1-6fc8-c047-aa57-58e4d5e0e228</xmpMM:InstanceID>
+         <xmp:MetadataDate>2020-08-09T17:08:29+06:00</xmp:MetadataDate>
+         <xmp:ModifyDate>2020-08-09T17:08:29+06:00</xmp:ModifyDate>
+         <xmpMM:InstanceID>xmp.iid:c06b1e49-c067-b546-9750-0f912cd78126</xmpMM:InstanceID>
          <xmpMM:DocumentID>xmp.did:b7933fa1-6fc8-c047-aa57-58e4d5e0e228</xmpMM:DocumentID>
          <xmpMM:OriginalDocumentID>xmp.did:bc722fd2-e7e1-b946-8b03-891f417a37c5</xmpMM:OriginalDocumentID>
          <xmpMM:History>
@@ -55,6 +55,20 @@
                   <stEvt:action>saved</stEvt:action>
                   <stEvt:instanceID>xmp.iid:b7933fa1-6fc8-c047-aa57-58e4d5e0e228</stEvt:instanceID>
                   <stEvt:when>2020-08-09T03:05:59+06:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition CC 2017.0 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:ac9144a8-0e49-9248-8bc9-62868ec4ea32</stEvt:instanceID>
+                  <stEvt:when>2020-08-09T17:08:29+06:00</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Audition CC 2017.0 (Windows)</stEvt:softwareAgent>
+                  <stEvt:changed>/metadata</stEvt:changed>
+               </rdf:li>
+               <rdf:li rdf:parseType="Resource">
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:c06b1e49-c067-b546-9750-0f912cd78126</stEvt:instanceID>
+                  <stEvt:when>2020-08-09T17:08:29+06:00</stEvt:when>
                   <stEvt:softwareAgent>Adobe Audition CC 2017.0 (Windows)</stEvt:softwareAgent>
                   <stEvt:changed>/</stEvt:changed>
                </rdf:li>

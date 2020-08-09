@@ -5,8 +5,6 @@ namespace Movement
 		Idle,
 		Walk,
 		Run,
-		Jump,
-		Fly,
-		Landing
+		Fly
 	}
 }

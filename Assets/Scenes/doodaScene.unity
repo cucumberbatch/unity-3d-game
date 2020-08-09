@@ -522,8 +522,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fc7b743acf0ab478b3d02002f6ebee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
   playerBody: {fileID: 1636589164}
+  mouseSensitivityX: 1
+  mouseSensitivityY: 1
+  cameraDamping: 15
 --- !u!81 &1002584899
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1100,7 +1102,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 512
-  groundDistance: 0.4
+  groundDistance: 0.35
 --- !u!4 &1636589164
 Transform:
   m_ObjectHideFlags: 0
@@ -1838,5 +1840,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 778e2f9b173f309408d16c7f105ec162, type: 3}
   - {fileID: 8300000, guid: eb7188be15e7464429114d3dab11edc3, type: 3}
   - {fileID: 8300000, guid: d9250ed293010894ca277f0946ce4f0b, type: 3}
-  jumpSound: {fileID: 8300000, guid: 5a618c007fe353c459f6916c3860e274, type: 3}
-  timeToStep: 1.4
+  jumpSound: {fileID: 8300000, guid: e26e0202b4ae3294c82a4f2e7c25f91c, type: 3}
+  timeToStep: 1.15

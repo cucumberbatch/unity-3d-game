@@ -9,21 +9,21 @@ namespace Movement
 		public static readonly IState Flying           = new FlyingState();
 		
 		public IState state;
-		public float timeToStep;
 		public AudioClip[] footstepSounds;
 		public AudioClip jumpSound;
 		public AudioSource audioSource;
+		public float timeToStep;
 
 		internal float _toStepCycles = 0.05f;
 		internal float _waitingTime = 0.0f;
 
-		public PersonFootstepsStateMachine(IState state, float timeToStep, AudioClip[] footstepSounds, AudioClip jumpSound, AudioSource audioSource)
+		public PersonFootstepsStateMachine(float timeToStep, AudioClip[] footstepSounds, AudioClip jumpSound, AudioSource audioSource)
 		{
-			this.state = state;
 			this.timeToStep = timeToStep;
 			this.footstepSounds = footstepSounds;
 			this.jumpSound = jumpSound;
 			this.audioSource = audioSource;
+			state = Standing;
 		}
 
 		public void Execute(ISteppingCommand command)
