@@ -14,37 +14,51 @@ namespace Movement
 
 		private Movement 					_movementComponent;
 		private PersonFootstepsStateMachine _stateMachine;
-		private FootstepsPlayer 			_player;
 		private AudioSource 				_audioSource;
 
-		private readonly Hashtable 			_hashtable 	= new Hashtable();
+		private Hashtable 					_hashtable;
 
+		
 		private void Start()
 		{
 			InitCommandsInHashtable();
 			_movementComponent 	= player.GetComponent<Movement>();
 			_audioSource 		= GetComponent<AudioSource>();
-			_player 			= new FootstepsPlayer(soundboards.Asphalt, _audioSource);
-			_stateMachine 		= new PersonFootstepsStateMachine(_player, timeToStep);
+			_stateMachine 		= new PersonFootstepsStateMachine(new FootstepsPlayer(soundboards.Asphalt, _audioSource), timeToStep);
 		}	
 
 		private void Update()
 		{
+			UpdateFootstepsSoundboard();
 			ApplyCharacterFootstepsStrategy();
+		}
+
+		private void UpdateFootstepsSoundboard()
+		{
+			_stateMachine.player.SetSoundboard(soundboards.GetSoundboard(_movementComponent.GroundType));
 		}
 
 		private void ApplyCharacterFootstepsStrategy()
 		{
+			
 			ISteppingCommand command = (ISteppingCommand) _hashtable[_movementComponent.MovementState];
 			_stateMachine.Execute(command);
 		}
 
 		private void InitCommandsInHashtable()
 		{
-			_hashtable.Add(MovementState.Idle,	new StandCommand());
-			_hashtable.Add(MovementState.Walk,	new WalkCommand());
-			_hashtable.Add(MovementState.Run,	new RunCommand());
-			_hashtable.Add(MovementState.Fly,	new FlyCommand());
+			_hashtable = new Hashtable
+			{
+				{MovementState.Idle, 	new StandCommand()},
+				{MovementState.Walk, 	new WalkCommand()},
+				{MovementState.Run, 	new RunCommand()},
+				{MovementState.Fly, 	new FlyCommand()}
+			};
+		}
+
+		public PersonFootstepsStateMachine StateMachine()
+		{
+			return _stateMachine;
 		}
 	}
 }

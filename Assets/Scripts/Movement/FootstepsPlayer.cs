@@ -38,7 +38,7 @@ namespace Movement
 			_source.PlayOneShot(_soundboard.jumpSound);
 		}
 
-		public void Swap<T>(ref T that, ref T other)
+		public static void Swap<T>(ref T that, ref T other)
 		{
 			T temp 	= that; 
 			that 	= other; 

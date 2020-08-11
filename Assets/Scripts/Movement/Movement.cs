@@ -17,7 +17,8 @@ namespace Movement
 		public LayerMask 			groundMask;
 		public float 				groundDistance;
 
-		public 	MovementState 		MovementState { get; private set; }
+		public MovementState 		MovementState { get; private set; }
+		public GroundType 			GroundType { get; private set; }
 		
 		private CharacterCrouch 	_crouch;
 		private Vector3 			_velocity;
@@ -26,6 +27,7 @@ namespace Movement
 
 		private bool 				_isGrounded;
 
+		private RaycastHit 			_hit;
 
 		private void Start()
 		{
@@ -67,6 +69,16 @@ namespace Movement
 				else
 				{
 					MovementState 	= MovementState.Idle;
+				}
+
+				if (Physics.Raycast(transform.position, Vector3.down, out _hit, 4, groundMask))
+				{
+					Ground ground = _hit.transform.GetComponent<Ground>();
+
+					if (ground)
+					{
+						GroundType = ground.groundType;
+					}
 				}
 			}
 			else

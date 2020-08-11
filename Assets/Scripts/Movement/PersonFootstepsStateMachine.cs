@@ -15,9 +15,9 @@ namespace Movement
 
 		public PersonFootstepsStateMachine(FootstepsPlayer player, float timeToStep)
 		{
-			this.player = player;
+			this.player 	= player;
 			this.timeToStep = timeToStep;
-			state = Standing;
+			state 			= Standing;
 		}
 
 		public void Execute(ISteppingCommand command)
@@ -38,10 +38,7 @@ namespace Movement
 
 	public class FlyingState : IState
 	{
-		public void Flying(PersonFootstepsStateMachine machine)
-		{
-			
-		}
+		public void Flying(PersonFootstepsStateMachine machine) { }
 
 		public void Running(PersonFootstepsStateMachine machine)
 		{
@@ -120,10 +117,7 @@ namespace Movement
 			machine.state = PersonFootstepsStateMachine.Walking;
 		}
 
-		public void Standing(PersonFootstepsStateMachine machine)
-		{
-			
-		}
+		public void Standing(PersonFootstepsStateMachine machine) { }
 	}
 
 	public interface IState
