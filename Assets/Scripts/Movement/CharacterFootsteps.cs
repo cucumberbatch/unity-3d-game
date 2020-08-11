@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using Constants.Sounds;
 using UnityEngine;
 
 namespace Movement
@@ -9,24 +9,24 @@ namespace Movement
 	{
 
 		public GameObject 	player;
-		public AudioClip[] 	footstepSounds;
-		public AudioClip 	jumpSound;
+		public Soundboards 	soundboards;
 		public float 		timeToStep;
 
 		private Movement 					_movementComponent;
 		private PersonFootstepsStateMachine _stateMachine;
+		private FootstepsPlayer 			_player;
 		private AudioSource 				_audioSource;
 
-		private readonly Hashtable _hashtable = new Hashtable();
-		
+		private readonly Hashtable 			_hashtable 	= new Hashtable();
 
 		private void Start()
 		{
 			InitCommandsInHashtable();
-			_movementComponent = player.GetComponent<Movement>();
-			_audioSource = GetComponent<AudioSource>();
-			_stateMachine = new PersonFootstepsStateMachine(timeToStep, footstepSounds, jumpSound, _audioSource);
-		}
+			_movementComponent 	= player.GetComponent<Movement>();
+			_audioSource 		= GetComponent<AudioSource>();
+			_player 			= new FootstepsPlayer(soundboards.Asphalt, _audioSource);
+			_stateMachine 		= new PersonFootstepsStateMachine(_player, timeToStep);
+		}	
 
 		private void Update()
 		{

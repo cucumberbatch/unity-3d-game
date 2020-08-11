@@ -839,6 +839,61 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1574470289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1574470291}
+  - component: {fileID: 1574470290}
+  m_Layer: 0
+  m_Name: Soundboards
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1574470290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574470289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885cee3cda6b4edd87d5d2297456c51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Asphalt:
+    footstepSounds:
+    - {fileID: 8300000, guid: d53d76d1900c31f4f974f0ad8b572ed1, type: 3}
+    - {fileID: 8300000, guid: 2137b840074e4b04897234b1877907f4, type: 3}
+    - {fileID: 8300000, guid: ee9a34b871ca85a48a961f4412668f58, type: 3}
+    jumpSound: {fileID: 8300000, guid: fd25041c5c725a347a0f8bef18257cf7, type: 3}
+  Grass:
+    footstepSounds:
+    - {fileID: 8300000, guid: f41ac3852b2b15347992fcb508041f8b, type: 3}
+    - {fileID: 8300000, guid: 16c399aace4badb4eaa76c0bf04b1b07, type: 3}
+    - {fileID: 8300000, guid: b0e65c0afe60c0040b60b74ee195b7b7, type: 3}
+    jumpSound: {fileID: 8300000, guid: 621400c854616a246823cf188b06abb5, type: 3}
+--- !u!4 &1574470291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574470289}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.083553, y: 2.104954, z: -9.280119}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1583242096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,9 +1891,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1636589157}
-  footstepSounds:
-  - {fileID: 8300000, guid: 778e2f9b173f309408d16c7f105ec162, type: 3}
-  - {fileID: 8300000, guid: eb7188be15e7464429114d3dab11edc3, type: 3}
-  - {fileID: 8300000, guid: d9250ed293010894ca277f0946ce4f0b, type: 3}
-  jumpSound: {fileID: 8300000, guid: e26e0202b4ae3294c82a4f2e7c25f91c, type: 3}
+  soundboards: {fileID: 1574470290}
   timeToStep: 1.15

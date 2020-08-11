@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Movement
 {
 	public class PersonFootstepsStateMachine
@@ -8,21 +6,17 @@ namespace Movement
 		public static readonly IState Walking          = new WalkingState();
 		public static readonly IState Flying           = new FlyingState();
 		
-		public IState state;
-		public AudioClip[] footstepSounds;
-		public AudioClip jumpSound;
-		public AudioSource audioSource;
-		public float timeToStep;
+		public IState 			state;
+		public FootstepsPlayer 	player;
+		public float 			timeToStep;
 
 		internal float _toStepCycles = 0.05f;
-		internal float _waitingTime = 0.0f;
+		internal float _waitingTime;
 
-		public PersonFootstepsStateMachine(float timeToStep, AudioClip[] footstepSounds, AudioClip jumpSound, AudioSource audioSource)
+		public PersonFootstepsStateMachine(FootstepsPlayer player, float timeToStep)
 		{
+			this.player = player;
 			this.timeToStep = timeToStep;
-			this.footstepSounds = footstepSounds;
-			this.jumpSound = jumpSound;
-			this.audioSource = audioSource;
 			state = Standing;
 		}
 
@@ -31,18 +25,14 @@ namespace Movement
 			command.Execute(this);
 		}
 
-		public void playFootstepsSound()
+		public void PlayFootstepsSound()
 		{
-			int soundIndex = Random.Range(1, footstepSounds.Length);
-			audioSource.PlayOneShot(footstepSounds[soundIndex]);
-			AudioClip temporary = footstepSounds[0];
-			footstepSounds[0] = footstepSounds[soundIndex];
-			footstepSounds[soundIndex] = temporary;
+			player.PlayFootstepsSound();
 		}
 
-		public void playJumpSound()
+		public void PlayJumpSound()
 		{
-			audioSource.PlayOneShot(jumpSound);
+			player.PlayJumpSound();
 		}
 	}
 
@@ -60,13 +50,13 @@ namespace Movement
 
 		public void Walking(PersonFootstepsStateMachine machine)
 		{
-			machine.playFootstepsSound();
+			machine.PlayFootstepsSound();
 			machine.state = PersonFootstepsStateMachine.Walking;
 		}
 
 		public void Standing(PersonFootstepsStateMachine machine)
 		{ 
-			machine.playFootstepsSound();
+			machine.PlayFootstepsSound();
 			machine.state = PersonFootstepsStateMachine.Standing;
 		}
 	}
@@ -75,7 +65,7 @@ namespace Movement
 	{
 		public void Flying(PersonFootstepsStateMachine machine)
 		{
-			machine.playJumpSound();
+			machine.PlayJumpSound();
 			machine.state = PersonFootstepsStateMachine.Flying;
 		}
 
@@ -88,7 +78,7 @@ namespace Movement
 			}
 		
 			machine._waitingTime = .0f;
-			machine.playFootstepsSound();
+			machine.PlayFootstepsSound();
 		}
 
 		public void Walking(PersonFootstepsStateMachine machine)
@@ -100,7 +90,7 @@ namespace Movement
 			}
 		
 			machine._waitingTime = .0f;
-			machine.playFootstepsSound();
+			machine.PlayFootstepsSound();
 		}
 
 		public void Standing(PersonFootstepsStateMachine machine)
@@ -114,7 +104,7 @@ namespace Movement
 	{
 		public void Flying(PersonFootstepsStateMachine machine)
 		{
-			machine.playJumpSound();
+			machine.PlayJumpSound();
 			machine.state = PersonFootstepsStateMachine.Flying;
 		}
 
@@ -125,7 +115,7 @@ namespace Movement
 
 		public void Walking(PersonFootstepsStateMachine machine)
 		{
-			machine.playFootstepsSound();
+			machine.PlayFootstepsSound();
 			
 			machine.state = PersonFootstepsStateMachine.Walking;
 		}
