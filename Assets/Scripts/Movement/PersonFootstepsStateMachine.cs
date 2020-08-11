@@ -10,7 +10,8 @@ namespace Movement
 		public FootstepsPlayer 	player;
 		public float 			timeToStep;
 
-		internal float _toStepCycles = 0.05f;
+		internal float _walkIncrement 	= 0.05f;
+		internal float _runIncrement 	= 0.08f;
 		internal float _waitingTime;
 
 		public PersonFootstepsStateMachine(FootstepsPlayer player, float timeToStep)
@@ -70,7 +71,7 @@ namespace Movement
 		{
 			if (machine._waitingTime < machine.timeToStep)
 			{
-				machine._waitingTime += machine._toStepCycles * 1.85f;
+				machine._waitingTime += machine._runIncrement;
 				return;
 			}
 		
@@ -82,7 +83,7 @@ namespace Movement
 		{
 			if (machine._waitingTime < machine.timeToStep)
 			{
-				machine._waitingTime += machine._toStepCycles;
+				machine._waitingTime += machine._walkIncrement;
 				return;
 			}
 		

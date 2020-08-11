@@ -38,11 +38,11 @@ namespace Movement
 			_source.PlayOneShot(_soundboard.jumpSound);
 		}
 
-		public static void Swap<T>(ref T that, ref T other)
+		public static void Swap<T>(ref T o1, ref T o2)
 		{
-			T temp 	= that; 
-			that 	= other; 
-			other 	= temp;
+			T t	= o1; 
+			o1 	= o2; 
+			o2 	= t;
 		}
 		
 	}
@@ -53,10 +53,5 @@ namespace Movement
 		public AudioClip[] 	footstepSounds;
 		public AudioClip 	jumpSound;
 
-		public FootstepsSoundboard(AudioClip jumpSound, AudioClip[] footstepSounds)
-		{
-			this.footstepSounds = footstepSounds;
-			this.jumpSound 		= jumpSound;
-		}
 	}
 }

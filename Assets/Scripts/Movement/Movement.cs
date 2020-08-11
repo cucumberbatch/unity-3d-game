@@ -23,7 +23,6 @@ namespace Movement
 		private CharacterCrouch 	_crouch;
 		private Vector3 			_velocity;
 		private Vector3 			_movement;
-		private Transform 			_transform;
 
 		private bool 				_isGrounded;
 
@@ -31,8 +30,9 @@ namespace Movement
 
 		private void Start()
 		{
+			Application.targetFrameRate = 60;
+			
 			_crouch 	= new CharacterCrouch();
-			_transform 	= transform;
 		}
 
 		private void Update()
@@ -48,7 +48,7 @@ namespace Movement
 			float x = Input.GetAxis("Horizontal");
 			float z = Input.GetAxis("Vertical");
 
-			_movement = _transform.right * x + _transform.forward * z;
+			_movement = transform.right * x + transform.forward * z;
 			
 			if (_isGrounded)
 			{
