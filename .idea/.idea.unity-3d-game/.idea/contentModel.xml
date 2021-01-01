@@ -278,6 +278,8 @@
             </e>
           </e>
         </e>
+        <e p="Target.cs" t="Include" />
+        <e p="TestTargetLevels.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
