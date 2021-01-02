@@ -24,7 +24,6 @@
           <e p="CharacterInventory.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemyV2.cs" t="Include" />
-          <e p="HealthBar.cs" t="Include" />
           <e p="Memory" t="Include">
             <e p="Pool.cs" t="Include" />
           </e>
@@ -37,7 +36,7 @@
             <e p="MovementState.cs" t="Include" />
             <e p="PersonFootstepsStateMachine.cs" t="Include" />
           </e>
-          <e p="Player.cs" t="Include" />
+          <e p="PickUpController.cs" t="Include" />
           <e p="PlayerHealthBar.cs" t="Include" />
           <e p="RayGun.cs" t="Include" />
           <e p="Shooting.cs" t="Include" />

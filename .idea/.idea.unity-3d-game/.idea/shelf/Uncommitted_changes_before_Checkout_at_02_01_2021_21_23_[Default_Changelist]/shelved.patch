@@ -1,0 +1,148 @@
+Index: Assets/Models.meta
+===================================================================
+--- Assets/Models.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
++++ Assets/Models.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
+@@ -1,8 +0,0 @@
+-fileFormatVersion: 2
+-guid: 59848a0717ef24746a112731a3f4dc71
+-folderAsset: yes
+-DefaultImporter:
+-  externalObjects: {}
+-  userData: 
+-  assetBundleName: 
+-  assetBundleVariant: 
+Index: Assets/Plugins.meta
+===================================================================
+--- Assets/Plugins.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
++++ Assets/Plugins.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
+@@ -1,8 +0,0 @@
+-fileFormatVersion: 2
+-guid: 9e408e065c79d864aa47f85ea561b712
+-folderAsset: yes
+-DefaultImporter:
+-  externalObjects: {}
+-  userData: 
+-  assetBundleName: 
+-  assetBundleVariant: 
+Index: Assets/Scenes/Levels.meta
+===================================================================
+--- Assets/Scenes/Levels.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
++++ Assets/Scenes/Levels.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
+@@ -1,8 +0,0 @@
+-fileFormatVersion: 2
+-guid: aa2ce57f189405d46a36fb32a5e91417
+-folderAsset: yes
+-DefaultImporter:
+-  externalObjects: {}
+-  userData: 
+-  assetBundleName: 
+-  assetBundleVariant: 
+Index: Assets/Audio/SFX.meta
+===================================================================
+--- Assets/Audio/SFX.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
++++ Assets/Audio/SFX.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
+@@ -1,8 +0,0 @@
+-fileFormatVersion: 2
+-guid: dab1f67cd87f52e4fa7bd573eb811ba6
+-folderAsset: yes
+-DefaultImporter:
+-  externalObjects: {}
+-  userData: 
+-  assetBundleName: 
+-  assetBundleVariant: 
+Index: Assets/Prefabs/Weapon/Ray Weapon.meta
+===================================================================
+--- Assets/Prefabs/Weapon/Ray Weapon.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
++++ Assets/Prefabs/Weapon/Ray Weapon.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
+@@ -1,8 +0,0 @@
+-fileFormatVersion: 2
+-guid: 39a51d9696d8937479e037ed63c9088f
+-folderAsset: yes
+-DefaultImporter:
+-  externalObjects: {}
+-  userData: 
+-  assetBundleName: 
+-  assetBundleVariant: 
+Index: Assets/Resources.meta
+===================================================================
+--- Assets/Resources.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
++++ Assets/Resources.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
+@@ -1,8 +0,0 @@
+-fileFormatVersion: 2
+-guid: 310437eacb6979a40bed907fe2a91ee0
+-folderAsset: yes
+-DefaultImporter:
+-  externalObjects: {}
+-  userData: 
+-  assetBundleName: 
+-  assetBundleVariant: 
+Index: Assets/Audio/Music.meta
+===================================================================
+--- Assets/Audio/Music.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
++++ Assets/Audio/Music.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
+@@ -1,8 +0,0 @@
+-fileFormatVersion: 2
+-guid: 3de50b5e6e41f8644b593a0295f26ea6
+-folderAsset: yes
+-DefaultImporter:
+-  externalObjects: {}
+-  userData: 
+-  assetBundleName: 
+-  assetBundleVariant: 
+Index: Assets/Shaders.meta
+===================================================================
+--- Assets/Shaders.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
++++ Assets/Shaders.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
+@@ -1,8 +0,0 @@
+-fileFormatVersion: 2
+-guid: f72384f188804ac4bbb84d77aaa47c85
+-folderAsset: yes
+-DefaultImporter:
+-  externalObjects: {}
+-  userData: 
+-  assetBundleName: 
+-  assetBundleVariant: 
+Index: Assets/Scripts/Editor.meta
+===================================================================
+--- Assets/Scripts/Editor.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
++++ Assets/Scripts/Editor.meta	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
+@@ -1,8 +0,0 @@
+-fileFormatVersion: 2
+-guid: 82014f07d25677b448443f8c93798a2a
+-folderAsset: yes
+-DefaultImporter:
+-  externalObjects: {}
+-  userData: 
+-  assetBundleName: 
+-  assetBundleVariant: 
+Index: .idea/.idea.unity-3d-game/.idea/contentModel.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ContentModelStore\">\r\n    <e p=\"C:\\Users\\User\\.Rider2019.3\\system\\extResources\" t=\"IncludeRecursive\" />\r\n    <e p=\"C:\\Users\\User\\.Rider2019.3\\system\\resharper-host\\local\\Transient\\ReSharperHost\\v193\\SolutionCaches\\_unity-3d-game.-339465709.00\" t=\"ExcludeRecursive\" />\r\n    <e p=\"D:\\User\\Documents\\Unity Game Project\\unity-3d-game\" t=\"IncludeRecursive\">\r\n      <e p=\"Assembly-CSharp-Editor.csproj\" t=\"IncludeRecursive\" />\r\n      <e p=\"Assembly-CSharp.csproj\" t=\"IncludeRecursive\" />\r\n      <e p=\"Assets\" t=\"Include\">\r\n        <e p=\"3rd-Party\" t=\"Include\">\r\n          <e p=\"MentalDreamsAssets\" t=\"Include\">\r\n            <e p=\"SoldierSoundsPack\" t=\"Include\">\r\n              <e p=\"ReadMe!.txt\" t=\"Include\" />\r\n            </e>\r\n          </e>\r\n          <e p=\"Standard Assets\" t=\"Include\">\r\n            <e p=\"2D\" t=\"Include\">\r\n              <e p=\"Scripts\" t=\"Include\">\r\n                <e p=\"Camera2DFollow.cs\" t=\"Include\" />\r\n                <e p=\"CameraFollow.cs\" t=\"Include\" />\r\n                <e p=\"Platformer2DUserControl.cs\" t=\"Include\" />\r\n                <e p=\"PlatformerCharacter2D.cs\" t=\"Include\" />\r\n                <e p=\"Restarter.cs\" t=\"Include\" />\r\n              </e>\r\n            </e>\r\n            <e p=\"Cameras\" t=\"Include\">\r\n              <e p=\"CameraGuidelines.txt\" t=\"Include\" />\r\n              <e p=\"Scripts\" t=\"Include\">\r\n                <e p=\"AbstractTargetFollower.cs\" t=\"Include\" />\r\n                <e p=\"AutoCam.cs\" t=\"Include\" />\r\n                <e p=\"FreeLookCam.cs\" t=\"Include\" />\r\n                <e p=\"HandHeldCam.cs\" t=\"Include\" />\r\n                <e p=\"LookatTarget.cs\" t=\"Include\" />\r\n                <e p=\"PivotBasedCameraRig.cs\" t=\"Include\" />\r\n                <e p=\"ProtectCameraFromWallClip.cs\" t=\"Include\" />\r\n                <e p=\"TargetFieldOfView.cs\" t=\"Include\" />\r\n              </e>\r\n            </e>\r\n            <e p=\"Characters\" t=\"Include\">\r\n              <e p=\"FirstPersonCharacter\" t=\"Include\">\r\n                <e p=\"FirstPersonCharacterGuidelines.txt\" t=\"Include\" />\r\n                <e p=\"Scripts\" t=\"Include\">\r\n                  <e p=\"FirstPersonController.cs\" t=\"Include\" />\r\n                  <e p=\"HeadBob.cs\" t=\"Include\" />\r\n                  <e p=\"MouseLook.cs\" t=\"Include\" />\r\n                  <e p=\"RigidbodyFirstPersonController.cs\" t=\"Include\" />\r\n                </e>\r\n              </e>\r\n              <e p=\"RollerBall\" t=\"Include\">\r\n                <e p=\"RollerBallGuidelines.txt\" t=\"Include\" />\r\n                <e p=\"Scripts\" t=\"Include\">\r\n                  <e p=\"Ball.cs\" t=\"Include\" />\r\n                  <e p=\"BallUserControl.cs\" t=\"Include\" />\r\n                </e>\r\n              </e>\r\n              <e p=\"ThirdPersonCharacter\" t=\"Include\">\r\n                <e p=\"Scripts\" t=\"Include\">\r\n                  <e p=\"AICharacterControl.cs\" t=\"Include\" />\r\n                  <e p=\"ThirdPersonCharacter.cs\" t=\"Include\" />\r\n                  <e p=\"ThirdPersonUserControl.cs\" t=\"Include\" />\r\n                </e>\r\n                <e p=\"ThirdPersonCharacterGuidelines.txt\" t=\"Include\" />\r\n              </e>\r\n            </e>\r\n            <e p=\"CrossPlatformInput\" t=\"Include\">\r\n              <e p=\"CrossPlatformInputGuidelines.txt\" t=\"Include\" />\r\n              <e p=\"Scripts\" t=\"Include\">\r\n                <e p=\"AxisTouchButton.cs\" t=\"Include\" />\r\n                <e p=\"ButtonHandler.cs\" t=\"Include\" />\r\n                <e p=\"CrossPlatformInputManager.cs\" t=\"Include\" />\r\n                <e p=\"InputAxisScrollbar.cs\" t=\"Include\" />\r\n                <e p=\"Joystick.cs\" t=\"Include\" />\r\n                <e p=\"MobileControlRig.cs\" t=\"Include\" />\r\n                <e p=\"PlatformSpecific\" t=\"Include\">\r\n                  <e p=\"MobileInput.cs\" t=\"Include\" />\r\n                  <e p=\"StandaloneInput.cs\" t=\"Include\" />\r\n                </e>\r\n                <e p=\"TiltInput.cs\" t=\"Include\" />\r\n                <e p=\"TouchPad.cs\" t=\"Include\" />\r\n                <e p=\"VirtualInput.cs\" t=\"Include\" />\r\n              </e>\r\n            </e>\r\n            <e p=\"Editor\" t=\"Include\">\r\n              <e p=\"CrossPlatformInput\" t=\"Include\">\r\n                <e p=\"CrossPlatformInputInitialize.cs\" t=\"Include\" />\r\n              </e>\r\n              <e p=\"Water\" t=\"Include\">\r\n                <e p=\"Water4\" t=\"Include\">\r\n                  <e p=\"GerstnerDisplaceEditor.cs\" t=\"Include\" />\r\n                  <e p=\"PlanarReflectionEditor.cs\" t=\"Include\" />\r\n                  <e p=\"SpecularLightingEditor.cs\" t=\"Include\" />\r\n                  <e p=\"WaterBaseEditor.cs\" t=\"Include\" />\r\n                  <e p=\"WaterEditorUtility.cs\" t=\"Include\" />\r\n                </e>\r\n              </e>\r\n            </e>\r\n            <e p=\"Effects\" t=\"Include\">\r\n              <e p=\"GlassRefraction\" t=\"Include\">\r\n                <e p=\"Shaders\" t=\"Include\">\r\n                  <e p=\"GlassStainedBumpDistort.shader\" t=\"Include\" />\r\n                </e>\r\n              </e>\r\n              <e p=\"ImageEffects\" t=\"Include\">\r\n                <e p=\"Readme.txt\" t=\"Include\" />\r\n              </e>\r\n              <e p=\"Projectors\" t=\"Include\">\r\n                <e p=\"Guidelines.txt\" t=\"Include\" />\r\n                <e p=\"Shaders\" t=\"Include\">\r\n                  <e p=\"ProjectorLight.shader\" t=\"Include\" />\r\n                  <e p=\"ProjectorMultiply.shader\" t=\"Include\" />\r\n                </e>\r\n              </e>\r\n              <e p=\"TessellationShaders\" t=\"Include\">\r\n                <e p=\"Shaders\" t=\"Include\">\r\n                  <e p=\"BumpedSpecularDisplacement.shader\" t=\"Include\" />\r\n                  <e p=\"BumpedSpecularSmooth.shader\" t=\"Include\" />\r\n                </e>\r\n              </e>\r\n              <e p=\"ToonShading\" t=\"Include\">\r\n                <e p=\"Shaders\" t=\"Include\">\r\n                  <e p=\"ToonBasic.shader\" t=\"Include\" />\r\n                  <e p=\"ToonBasicOutline.shader\" t=\"Include\" />\r\n                  <e p=\"ToonLit.shader\" t=\"Include\" />\r\n                  <e p=\"ToonLitOutline.shader\" t=\"Include\" />\r\n                </e>\r\n              </e>\r\n            </e>\r\n            <e p=\"Environment\" t=\"Include\">\r\n              <e p=\"Water\" t=\"Include\">\r\n                <e p=\"DO_NOT_WORK_IN_VR.txt\" t=\"Include\" />\r\n                <e p=\"Water\" t=\"Include\">\r\n                  <e p=\"Scripts\" t=\"Include\">\r\n                    <e p=\"Displace.cs\" t=\"Include\" />\r\n                    <e p=\"GerstnerDisplace.cs\" t=\"Include\" />\r\n                    <e p=\"MeshContainer.cs\" t=\"Include\" />\r\n                    <e p=\"PlanarReflection.cs\" t=\"Include\" />\r\n                    <e p=\"SpecularLighting.cs\" t=\"Include\" />\r\n                    <e p=\"Water.cs\" t=\"Include\" />\r\n                    <e p=\"WaterBase.cs\" t=\"Include\" />\r\n                    <e p=\"WaterTile.cs\" t=\"Include\" />\r\n                  </e>\r\n                  <e p=\"Shaders\" t=\"Include\">\r\n                    <e p=\"FXWaterPro.shader\" t=\"Include\" />\r\n                  </e>\r\n                </e>\r\n                <e p=\"Water4\" t=\"Include\">\r\n                  <e p=\"Shaders\" t=\"Include\">\r\n                    <e p=\"FXWater4Advanced.shader\" t=\"Include\" />\r\n                    <e p=\"FXWater4Simple.shader\" t=\"Include\" />\r\n                    <e p=\"WaterInclude.cginc\" t=\"Include\" />\r\n                  </e>\r\n                </e>\r\n              </e>\r\n              <e p=\"Water (Basic)\" t=\"Include\">\r\n                <e p=\"DO_NOT_WORK_IN_VR.txt\" t=\"Include\" />\r\n                <e p=\"Scripts\" t=\"Include\">\r\n                  <e p=\"WaterBasic.cs\" t=\"Include\" />\r\n                </e>\r\n                <e p=\"Shaders\" t=\"Include\">\r\n                  <e p=\"FXWaterBasic.shader\" t=\"Include\" />\r\n                </e>\r\n              </e>\r\n            </e>\r\n            <e p=\"Fonts\" t=\"Include\">\r\n              <e p=\"OpenSans\" t=\"Include\">\r\n                <e p=\"License!.txt\" t=\"Include\" />\r\n              </e>\r\n            </e>\r\n            <e p=\"ParticleSystems\" t=\"Include\">\r\n              <e p=\"ParticleSystemsGuidelines.txt\" t=\"Include\" />\r\n              <e p=\"Scripts\" t=\"Include\">\r\n                <e p=\"AfterburnerPhysicsForce.cs\" t=\"Include\" />\r\n                <e p=\"ExplosionFireAndDebris.cs\" t=\"Include\" />\r\n                <e p=\"ExplosionPhysicsForce.cs\" t=\"Include\" />\r\n                <e p=\"Explosive.cs\" t=\"Include\" />\r\n                <e p=\"ExtinguishableParticleSystem.cs\" t=\"Include\" />\r\n                <e p=\"FireLight.cs\" t=\"Include\" />\r\n                <e p=\"Hose.cs\" t=\"Include\" />\r\n                <e p=\"ParticleSystemMultiplier.cs\" t=\"Include\" />\r\n                <e p=\"SmokeParticles.cs\" t=\"Include\" />\r\n                <e p=\"WaterHoseParticles.cs\" t=\"Include\" />\r\n              </e>\r\n              <e p=\"Shaders\" t=\"Include\">\r\n                <e p=\"PriorityParticleAdd.shader\" t=\"Include\" />\r\n                <e p=\"PriorityParticleAddSoft.shader\" t=\"Include\" />\r\n                <e p=\"PriorityParticleAlpha.shader\" t=\"Include\" />\r\n              </e>\r\n            </e>\r\n            <e p=\"Prototyping\" t=\"Include\">\r\n              <e p=\"Shaders\" t=\"Include\">\r\n                <e p=\"WorldCoordDiffuse.shader\" t=\"Include\" />\r\n              </e>\r\n            </e>\r\n            <e p=\"Utility\" t=\"Include\">\r\n              <e p=\"ActivateTrigger.cs\" t=\"Include\" />\r\n              <e p=\"AlphaButtonClickMask.cs\" t=\"Include\" />\r\n              <e p=\"AutoMobileShaderSwitch.cs\" t=\"Include\" />\r\n              <e p=\"AutoMoveAndRotate.cs\" t=\"Include\" />\r\n              <e p=\"CameraRefocus.cs\" t=\"Include\" />\r\n              <e p=\"CurveControlledBob.cs\" t=\"Include\" />\r\n              <e p=\"DragRigidbody.cs\" t=\"Include\" />\r\n              <e p=\"DynamicShadowSettings.cs\" t=\"Include\" />\r\n              <e p=\"EventSystemChecker.cs\" t=\"Include\" />\r\n              <e p=\"FollowTarget.cs\" t=\"Include\" />\r\n              <e p=\"ForcedReset.cs\" t=\"Include\" />\r\n              <e p=\"FOVKick.cs\" t=\"Include\" />\r\n              <e p=\"FPSCounter.cs\" t=\"Include\" />\r\n              <e p=\"LerpControlledBob.cs\" t=\"Include\" />\r\n              <e p=\"ObjectResetter.cs\" t=\"Include\" />\r\n              <e p=\"ParticleSystemDestroyer.cs\" t=\"Include\" />\r\n              <e p=\"PlatformSpecificContent.cs\" t=\"Include\" />\r\n              <e p=\"SimpleActivatorMenu.cs\" t=\"Include\" />\r\n              <e p=\"SimpleMouseRotator.cs\" t=\"Include\" />\r\n              <e p=\"SmoothFollow.cs\" t=\"Include\" />\r\n              <e p=\"TimedObjectActivator.cs\" t=\"Include\" />\r\n              <e p=\"TimedObjectDestructor.cs\" t=\"Include\" />\r\n              <e p=\"WaypointCircuit.cs\" t=\"Include\" />\r\n              <e p=\"WaypointProgressTracker.cs\" t=\"Include\" />\r\n            </e>\r\n            <e p=\"Vehicles\" t=\"Include\">\r\n              <e p=\"Aircraft\" t=\"Include\">\r\n                <e p=\"AircraftGuidelines.txt\" t=\"Include\" />\r\n                <e p=\"Scripts\" t=\"Include\">\r\n                  <e p=\"AeroplaneAiControl.cs\" t=\"Include\" />\r\n                  <e p=\"AeroplaneAudio.cs\" t=\"Include\" />\r\n                  <e p=\"AeroplaneController.cs\" t=\"Include\" />\r\n                  <e p=\"AeroplaneControlSurfaceAnimator.cs\" t=\"Include\" />\r\n                  <e p=\"AeroplanePropellerAnimator.cs\" t=\"Include\" />\r\n                  <e p=\"AeroplaneUserControl2Axis.cs\" t=\"Include\" />\r\n                  <e p=\"AeroplaneUserControl4Axis.cs\" t=\"Include\" />\r\n                  <e p=\"JetParticleEffect.cs\" t=\"Include\" />\r\n                  <e p=\"LandingGear.cs\" t=\"Include\" />\r\n                </e>\r\n              </e>\r\n              <e p=\"Car\" t=\"Include\">\r\n                <e p=\"CarGuidelines.txt\" t=\"Include\" />\r\n                <e p=\"Scripts\" t=\"Include\">\r\n                  <e p=\"BrakeLight.cs\" t=\"Include\" />\r\n                  <e p=\"CarAIControl.cs\" t=\"Include\" />\r\n                  <e p=\"CarAudio.cs\" t=\"Include\" />\r\n                  <e p=\"CarController.cs\" t=\"Include\" />\r\n                  <e p=\"CarSelfRighting.cs\" t=\"Include\" />\r\n                  <e p=\"CarUserControl.cs\" t=\"Include\" />\r\n                  <e p=\"Mudguard.cs\" t=\"Include\" />\r\n                  <e p=\"SkidTrail.cs\" t=\"Include\" />\r\n                  <e p=\"Suspension.cs\" t=\"Include\" />\r\n                  <e p=\"WheelEffects.cs\" t=\"Include\" />\r\n                </e>\r\n                <e p=\"Shaders\" t=\"Include\">\r\n                  <e p=\"DiffuseReflectiveShader.shader\" t=\"Include\" />\r\n                  <e p=\"ReflectiveDiffuseSpec.shader\" t=\"Include\" />\r\n                  <e p=\"ReflectiveDiffuseSpecTransp.shader\" t=\"Include\" />\r\n                </e>\r\n              </e>\r\n            </e>\r\n          </e>\r\n        </e>\r\n        <e p=\"Scripts\" t=\"Include\">\r\n          <e p=\"AI\" t=\"Include\">\r\n            <e p=\"CoverPoint.cs\" t=\"Include\" />\r\n            <e p=\"HidingSpot.cs\" t=\"Include\" />\r\n          </e>\r\n          <e p=\"AimGui.cs\" t=\"Include\" />\r\n          <e p=\"BladeHead.cs\" t=\"Include\" />\r\n          <e p=\"BloodHoleProjector.cs\" t=\"Include\" />\r\n          <e p=\"BloodSpriteSpawner.cs\" t=\"Include\" />\r\n          <e p=\"Bullet.cs\" t=\"Include\" />\r\n          <e p=\"BulletsPool.cs\" t=\"Include\" />\r\n          <e p=\"CharacterHealth.cs\" t=\"Include\" />\r\n          <e p=\"CharacterInventory.cs\" t=\"Include\" />\r\n          <e p=\"Enemy.cs\" t=\"Include\" />\r\n          <e p=\"EnemySphere.cs\" t=\"Include\" />\r\n          <e p=\"EnemyV2.cs\" t=\"Include\" />\r\n          <e p=\"FPSTarget.cs\" t=\"Include\" />\r\n          <e p=\"Interface\" t=\"Include\">\r\n            <e p=\"ScannerRayInterface.cs\" t=\"Include\" />\r\n          </e>\r\n          <e p=\"Memory\" t=\"Include\">\r\n            <e p=\"Pool.cs\" t=\"Include\" />\r\n          </e>\r\n          <e p=\"MouseLook.cs\" t=\"Include\" />\r\n          <e p=\"Movement\" t=\"Include\">\r\n            <e p=\"CharacterCrouch.cs\" t=\"Include\" />\r\n            <e p=\"CharacterFootsteps.cs\" t=\"Include\" />\r\n            <e p=\"CommandListener.cs\" t=\"Include\" />\r\n            <e p=\"Movement.cs\" t=\"Include\" />\r\n            <e p=\"MovementState.cs\" t=\"Include\" />\r\n            <e p=\"PersonFootstepsStateMachine.cs\" t=\"Include\" />\r\n          </e>\r\n          <e p=\"PlayerHealthBar.cs\" t=\"Include\" />\r\n          <e p=\"RayGun.cs\" t=\"Include\" />\r\n          <e p=\"Shooting.cs\" t=\"Include\" />\r\n          <e p=\"ShotBehavior.cs\" t=\"Include\" />\r\n          <e p=\"SpriteSpawner.cs\" t=\"Include\" />\r\n          <e p=\"WeaponMagazine.cs\" t=\"Include\" />\r\n        </e>\r\n      </e>\r\n      <e p=\"obj\" t=\"ExcludeRecursive\" />\r\n      <e p=\"Packages\" t=\"ExcludeRecursive\" />\r\n      <e p=\"Temp\\bin\" t=\"ExcludeRecursive\" />\r\n      <e p=\"unity-3d-game.sln\" t=\"IncludeFlat\" />\r\n    </e>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.idea.unity-3d-game/.idea/contentModel.xml	(revision 41c825ef51c608761a3022c0c0a1f4b41a68e86a)
++++ .idea/.idea.unity-3d-game/.idea/contentModel.xml	(date 1609599877140)
+@@ -1,9 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ContentModelStore">
+-    <e p="C:\Users\User\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+-    <e p="C:\Users\User\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_unity-3d-game.-339465709.00" t="ExcludeRecursive" />
+-    <e p="D:\User\Documents\Unity Game Project\unity-3d-game" t="IncludeRecursive">
++    <e p="C:\Users\Владислав\AppData\local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
++    <e p="C:\Users\Владислав\AppData\local\JetBrains\Transient\Rider\v202\SolutionCaches\_unity-3d-game.244930772.00" t="ExcludeRecursive" />
++    <e p="C:\Users\Владислав\AppData\Roaming\JetBrains\Rider2020.2\scratches" t="IncludeRecursive" />
++    <e p="C:\Users\Владислав\RiderProjects\unity-3d-game" t="IncludeRecursive">
+       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+       <e p="Assets" t="Include">
+@@ -287,6 +288,7 @@
+             <e p="MovementState.cs" t="Include" />
+             <e p="PersonFootstepsStateMachine.cs" t="Include" />
+           </e>
++          <e p="PickUpController.cs" t="Include" />
+           <e p="PlayerHealthBar.cs" t="Include" />
+           <e p="RayGun.cs" t="Include" />
+           <e p="Shooting.cs" t="Include" />
