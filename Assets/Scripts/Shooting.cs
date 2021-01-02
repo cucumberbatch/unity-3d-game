@@ -8,9 +8,8 @@ public class Shooting : MonoBehaviour
 	public GameObject poolDestination;
 	public GameObject pointLight;
 	public AudioClip fire;
-	public GameObject Pistol;
 	
-
+	// public GameObject Pistol;
 	// public GameObject poolHandle;
 	
 	public int speedAmm = 1000;
@@ -26,8 +25,8 @@ public class Shooting : MonoBehaviour
 	
 	//Waiting between shots 
 	private float delay = 0.5f;
-	private float currentTime;
-	private float anotherTime;
+	private float currentTime = 0;
+	private float bulletLifeTime = 0;
 	private float indent = 0.1f;
 
 
@@ -51,60 +50,54 @@ public class Shooting : MonoBehaviour
 			isAutomatic = !isAutomatic;
 		}
 
-		if (isAutomatic) {
-			if (Input.GetKey(KeyCode.Mouse0) && currentTime >= delay) {
-		        Transform bullet = _freeBulletsPool.getBullet();
-		    	bullet.gameObject.SetActive(true);
-		        
-		        bullet.transform.position = transform.position;
-		        bullet.transform.rotation = transform.rotation;
-		        
-		        bullet.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * speedAmm);
-		        
-		        _usedBulletsPool.putBullet(bullet);
-		        
-		        pointLight.GetComponent<Light>().enabled = true;
-		    	GetComponent<AudioSource>().PlayOneShot(fire);
-		        currentTime = 0;
+		if (isAutomatic)
+		{
+			if ((currentTime >= delay) && (Input.GetKeyDown(KeyCode.Mouse0)))
+			{
+				// Pistol.GetComponent<Animator>().SetTrigger("Shoot");
+				currentTime = 0;
+				Shoot(_freeBulletsPool.getBullet());
 			}
-			else {
-		    	pointLight.GetComponent<Light>().enabled = false;
-			}
-			
-
-		} else {
-			if (Input.GetKeyDown(KeyCode.Mouse0) && currentTime >= delay) {
-				Pistol.GetComponent<Animator>().SetTrigger("Shoot");
-				Transform bullet = _freeBulletsPool.getBullet();
-		        bullet.gameObject.SetActive(true);
-		        
-		        bullet.transform.position = transform.position;
-		        bullet.transform.rotation = transform.rotation;
-		        bullet.GetComponent<Bullet>().shootedPerson = gameObject;
-		        bullet.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * speedAmm);
-		        
-		        _usedBulletsPool.putBullet(bullet);
-		    	
-		        pointLight.GetComponent<Light>().enabled = true;
-		    	GetComponent<AudioSource>().PlayOneShot(fire);
-		        currentTime = 0;
-			}
-			else {
-		    	pointLight.GetComponent<Light>().enabled = false;
+			else
+			{
+				// pointLight.GetComponent<Light>().enabled = false;
 			}
 		}
-		
-		if (_usedBulletsPool.pool.Count != 0 && anotherTime >= delay * 5)
+
+		if (_usedBulletsPool.pool.Count != 0 && bulletLifeTime >= delay * 5)
 		{
 			Transform temporary = _usedBulletsPool.getBullet();
 			temporary.gameObject.GetComponent<Rigidbody>().ResetInertiaTensor();
 			temporary.gameObject.SetActive(false);
 			_freeBulletsPool.putBullet(temporary);
-			anotherTime = 0;
+			bulletLifeTime = 0;
 		}
 		currentTime += indent;
-		anotherTime += indent;
+		bulletLifeTime += indent;
 	}
 
+	public void Shoot(Transform bullet)
+	{
+		bullet.gameObject.SetActive(true);
+		
+		bullet.GetComponent<Bullet>().shootedPerson = gameObject;
+
+		// 
+		bullet.transform.position = transform.position;
+		bullet.transform.rotation = transform.rotation;
+
+		// придаем импульс пуле
+		bullet.gameObject.GetComponent<Rigidbody>().AddForce(transform.forward * speedAmm);
+		
+		// перемещаем пулю в резерв для пуль которые используются в данный момент
+		_usedBulletsPool.putBullet(bullet);
+		
+		// вспышка у дула ствола
+		pointLight.GetComponent<Light>().enabled = true;
+		
+		
+		GetComponent<AudioSource>().PlayOneShot(this.fire);
+
+	}
 	
 }

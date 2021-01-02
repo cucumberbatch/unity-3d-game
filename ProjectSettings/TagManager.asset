@@ -9,6 +9,7 @@ TagManager:
   - XR
   - Enemy
   - Wall
+  - EvilCube
   layers:
   - Default
   - TransparentFX

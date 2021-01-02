@@ -2516,7 +2516,7 @@ GameObject:
   - component: {fileID: 7810613771901668293}
   - component: {fileID: 7810613771892679715}
   m_Layer: 0
-  m_Name: swat
+  m_Name: swat Ragdoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2801,7 +2801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee9990aba6c7b24b8cac2672a0945ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _parent: {fileID: 7810613771902031845}
+  parent: {fileID: 0}
 --- !u!1 &7810613771902031853
 GameObject:
   m_ObjectHideFlags: 0

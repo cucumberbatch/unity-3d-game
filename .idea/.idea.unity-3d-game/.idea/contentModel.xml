@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Владислав\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Владислав\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_unity-3d-game.148685080.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Владислав\Documents\unity-3d-game" t="IncludeRecursive">
+    <e p="C:\Users\Владислав\AppData\local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Владислав\AppData\local\JetBrains\Transient\Rider\v202\SolutionCaches\_unity-3d-game.244930772.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Владислав\AppData\Roaming\JetBrains\Rider2020.2\scratches" t="IncludeRecursive" />
+    <e p="C:\Users\Владислав\RiderProjects\unity-3d-game" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
@@ -23,6 +24,7 @@
           <e p="CharacterInventory.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemyV2.cs" t="Include" />
+          <e p="HealthBar.cs" t="Include" />
           <e p="Memory" t="Include">
             <e p="Pool.cs" t="Include" />
           </e>
@@ -35,6 +37,7 @@
             <e p="MovementState.cs" t="Include" />
             <e p="PersonFootstepsStateMachine.cs" t="Include" />
           </e>
+          <e p="Player.cs" t="Include" />
           <e p="PlayerHealthBar.cs" t="Include" />
           <e p="RayGun.cs" t="Include" />
           <e p="Shooting.cs" t="Include" />
