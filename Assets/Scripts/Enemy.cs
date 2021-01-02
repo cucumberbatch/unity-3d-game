@@ -1,59 +1,73 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-    private NavMeshAgent _agent;
-    private GameObject player;
-    private Transform _agentTransform;
-    private Transform _target;
-    public GameObject Ragdoll;
+    public GameObject ragdoll;
+    public GameObject coverSpot;
+    public Transform target;
+    public float runSpeed = 6.0f;
+    public float walkSpeed = 3.0f;
     
+    private NavMeshAgent _agent;
+    private Animator _animator;
+    
+    /* Enemy animator states */
+    private static readonly int Idle = Animator.StringToHash("Idle");
+    private static readonly int Walk = Animator.StringToHash("Walk");
+    private static readonly int Run = Animator.StringToHash("Run");
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()
     {
+        /* Searching for player transform in the world */
+        target = GameObject.FindWithTag("Player").transform;
+        
         _agent = GetComponent<NavMeshAgent>();
-        player = GameObject.FindWithTag("Player");
-        _agentTransform = GetComponent<Transform>();
-        _target = player.GetComponent<Transform>();  //преследуем игрока
+        _animator = gameObject.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {    if (_agent.velocity == Vector3.zero)
-        {
-            gameObject.GetComponent<Animator>().SetTrigger("Idle");
-        }
+    public void Update()
+    {
         
-        if (_agent.velocity != Vector3.zero)
+        _agent.SetDestination(coverSpot.GetComponent<HidingSpot>().ChooseCover(transform.position, target.transform.position).position);
+        ChooseAnimatorStrategy();
+    }
+
+    
+    
+    /**
+     * 
+     */
+    private void ChooseAnimatorStrategy()
+    {
+        if (_agent.velocity == Vector3.zero)
         {
-            if (Mathf.Abs((_agentTransform.position - _target.position).magnitude) > _agent.stoppingDistance * 2.0f)
+            _animator.SetTrigger(Idle);
+        } 
+        else 
+        {
+            if (Mathf.Abs((transform.position - target.position).magnitude) > _agent.stoppingDistance)
             {
-                _agent.speed = 6;
-                gameObject.GetComponent<Animator>().SetTrigger("Run");
+                _agent.speed = runSpeed;
+                _animator.SetTrigger(Run);
             }
             else
             {
-                _agent.speed = 3;
-                gameObject.GetComponent<Animator>().SetTrigger("Walk");
+                _agent.speed = walkSpeed;
+                _animator.SetTrigger(Walk);
             }
         }
-            
-            
-        _agent.SetDestination(player.transform.position);
     }
-
-    private void OnTriggerEnter(Collider other)
-    { 
-        if (other.tag == "XR")
-        {
-            gameObject.SetActive(false);      
-            Ragdoll.SetActive(true);     //спауним труп
-            Instantiate(Ragdoll, transform.position, transform.rotation);
-        }
+    
+    private void OnTriggerStay(Collider other)
+    {
+        /* Check for bullet tag of collider */
+        if (!other.CompareTag("XR")) return;
+        
+        /*  */
+        gameObject.SetActive(false);
+        ragdoll.SetActive(true);
+        Instantiate(ragdoll, transform);
     }
 }

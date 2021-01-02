@@ -1,22 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CharacterHealth : MonoBehaviour
 {
     public int characterHealth = 50;
     public GameObject Ragdoll_RayGun;
-
-    private void ApplyDamage(int amountOfDamage)
-    {
-        characterHealth -= amountOfDamage;
-        print(gameObject.name + ": " + characterHealth);
-        if (characterHealth <= 0)
-            BroadcastMessage("Die",SendMessageOptions.DontRequireReceiver);
-    }
-
-
+    
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 8) //номер пули в слоях
@@ -25,7 +14,7 @@ public class CharacterHealth : MonoBehaviour
             {
                 return;
             }
-            ApplyDamage(collision.gameObject.GetComponent<Bullet>().amountOfDamage);
+            // ApplyDamage(collision.gameObject.GetComponent<Bullet>().amountOfDamage);
         }
     }
 

@@ -9,7 +9,7 @@ TagManager:
   - XR
   - Enemy
   - Wall
-  - EvilCube
+  - HidingPoint
   layers:
   - Default
   - TransparentFX
@@ -22,7 +22,7 @@ TagManager:
   - Projectiles
   - Ground
   - Enemy
-  - 
+  - Wall
   - 
   - 
   - 
