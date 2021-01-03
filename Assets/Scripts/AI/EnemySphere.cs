@@ -32,9 +32,9 @@ public class EnemySphere : MonoBehaviour
         {
             _previousPredatorPosition = predator.position;
             helper.GeneratePredatorPositionUpdateEvent();
+            _reservedSpot = helper.GetVictimHidingSpotTransform(transform, predator).GetComponent<HidingSpot>();
         }
 
-        _reservedSpot = helper.GetVictimHidingSpotTransform(transform, predator).GetComponent<HidingSpot>();
         
         Vector3 selectedDestinationPoint = _reservedSpot.transform.position;
         

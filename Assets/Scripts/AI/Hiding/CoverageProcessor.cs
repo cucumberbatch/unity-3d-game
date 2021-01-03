@@ -1,4 +1,5 @@
 ﻿
+using System;
 using UnityEngine;
 
 public class CoverageProcessor
@@ -7,8 +8,8 @@ public class CoverageProcessor
 	private HidingSpotLocationHelper _helper;
 
 	private static readonly float _minimumAcceptableCoverageAmount = 0.65f;
-	private float _safeDislocationValue = 0.0f;
-
+	private static readonly float _safeRelocationValue = 0.0f;
+	private static readonly float _relocationApprovementValueDifference = 0.3f;
 	
 	public CoverageProcessor(HidingSpotLocationHelper hidingSpotLocationHelper)
 	{
@@ -28,6 +29,7 @@ public class CoverageProcessor
 		}
 	}
 
+	
 	public void CalculateCoverage(Transform victim, Transform predator)
 	{
 		foreach (var spot in _hidingSpots)
@@ -36,14 +38,19 @@ public class CoverageProcessor
         }
 	}
 
+	
 	public Transform GetHidingSpotTransform(Transform victim, Transform predator)
 	{
-		if (_hidingSpots.Length == 0) return null;
+		if (_hidingSpots.Length == 0)
+		{
+			throw new NullReferenceException("There is no one hiding spot in this location!");
+		}
 		var selectedSpot = SelectHidingSpot(victim, predator);
 		_helper.TakeCover(selectedSpot, victim);
 		return selectedSpot.transform;
 	}
 
+	
 	private HidingSpot SelectHidingSpot(Transform victim, Transform predator)
 	{
 		HidingSpot selectedSpot = _hidingSpots[0];
@@ -52,19 +59,34 @@ public class CoverageProcessor
 		{
 			selectedSpot = spot;
 
-			if (spot.IsTaken() && !spot.IsTakenBy(victim)) continue;
-			if (!IsCoverageAcceptable(spot)) continue;
-			if (IsPositionChangingSafe(spot, victim, predator)) break;
+			if (selectedSpot.IsTaken() && !selectedSpot.IsTakenBy(victim)) continue;
+			if (!IsCoverageAcceptable(selectedSpot)) continue;
+			if (IsPositionChangingSafe(selectedSpot, victim, predator)) break;
 		}
 
-		return selectedSpot;
+		HidingSpot victimSpot = victim.GetComponent<EnemySphere>().GetHidingSpot();
+
+		if (victimSpot == null)
+		{
+			return selectedSpot;
+		}
+
+		return IsRelocationApproved(selectedSpot, victimSpot) ? selectedSpot : victimSpot;
 	}
 
+	private bool IsRelocationApproved(HidingSpot selectedSpot, HidingSpot victimSpot)
+	{
+		return selectedSpot.GetCoverageAmount() - victimSpot.GetCoverageAmount() >
+		       _relocationApprovementValueDifference;
+	}
+	
+	
 	private bool IsCoverageAcceptable(HidingSpot hidingSpot)
 	{
 		return hidingSpot.GetCoverageAmount() >= _minimumAcceptableCoverageAmount;
 	}
 
+	
 	private bool IsPositionChangingSafe(HidingSpot hidingSpot, Transform victim, Transform predator)
 	{
 		// there is gonna be math
@@ -72,6 +94,6 @@ public class CoverageProcessor
 		Vector3 victimHidingSpotVector = victim.position - hidingSpot.transform.position;
 		float dotProduct = Vector3.Dot(victimPredatorVector, victimHidingSpotVector);
 		
-		return dotProduct < _safeDislocationValue;
+		return dotProduct < _safeRelocationValue;
 	}
 }

@@ -73,5 +73,4 @@ public static class LocationEvent
 {
     /* A bunch of initialised events */
     public static readonly ILocationEvent PredatorPositionUpdateEvent = new PredatorPositionUpdateEvent();
-
 }

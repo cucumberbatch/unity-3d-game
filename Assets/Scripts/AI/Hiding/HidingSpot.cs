@@ -15,8 +15,7 @@ public class HidingSpot : MonoBehaviour
     {
         Vector3 position = transform.position;
         
-        // Draw hiding spot image and direction what it covers from
-        Gizmos.DrawIcon(position, "Assets/Resources/Gizmos/hiding-spot.tiff", true);
+        // Draw hiding spot coverage amount and direction what it covers from
         Gizmos.color = Color.black;
         Gizmos.DrawRay(position, NormalizedCoverageDirection());
         Handles.Label(position, "hiding spot\n" + _coverageAmount);
