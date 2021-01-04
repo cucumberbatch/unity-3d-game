@@ -8,6 +8,8 @@ public class HidingSpotLocationHelper : MonoBehaviour
     private bool _isCoverageCalculated;
     
     
+    //=========    ENGINE METHODS    ===========
+
     private void Start()
     {
         _events = new HashSet<ILocationEvent>();
@@ -24,6 +26,10 @@ public class HidingSpotLocationHelper : MonoBehaviour
 
         _events.Clear();
     }
+
+    
+    
+    //=========    OTHER METHODS    ===========
 
     /* Check all near hiding spots for coverage and select the most useful */
     public Transform GetVictimHidingSpotTransform(Transform victim, Transform predator)

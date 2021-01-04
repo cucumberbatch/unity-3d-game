@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemySphere : MonoBehaviour
@@ -18,38 +19,81 @@ public class EnemySphere : MonoBehaviour
     private Vector3 _previousPredatorPosition;
 
 
+    //=========    ENGINE METHODS    ===========
+    
     private void Start()
     {
-        _rigidBody = GetComponent<Rigidbody>();
-        _meshRenderer = GetComponent<MeshRenderer>();
-        _agent = GetComponent<NavMeshAgent>();
-        _previousPredatorPosition = predator.position;
+        _rigidBody     = GetComponent<Rigidbody>();
+        _meshRenderer  = GetComponent<MeshRenderer>();
+        _agent         = GetComponent<NavMeshAgent>();
+        UpdatePreviousPredatorPosition();
     }
+
 
     private void Update()
     {
-        if (predator.position != _previousPredatorPosition)
+        if (IsPredatorMoved())
         {
-            _previousPredatorPosition = predator.position;
-            helper.GeneratePredatorPositionUpdateEvent();
-            _reservedSpot = helper.GetVictimHidingSpotTransform(transform, predator).GetComponent<HidingSpot>();
+            UpdatePreviousPredatorPosition();
+            GeneratePredatorPositionUpdateEvent();
+            ReserveVictimHidingSpot();
         }
-
-        
-        Vector3 selectedDestinationPoint = _reservedSpot.transform.position;
-        
-        _agent.SetDestination(selectedDestinationPoint);
+        SetAgentDestination();
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
-        /* Set reference to an entered location object */
-        if (other.tag.Equals("LocationBox"))
+        if (IsTagsEquals(other, "LocationBox"))
         {
-            helper = other.GetComponent<HidingSpotLocationHelper>();
+            SetReferenceToEnteredLocationHelper(other);
         }
     }
 
+    
+    
+    //=========    OTHER METHODS    ===========
+    
+    private Vector3 UpdatePreviousPredatorPosition()
+    {
+        return _previousPredatorPosition = predator.position;
+    }
+
+    private void SetAgentDestination()
+    {
+        _agent.SetDestination(SelectDestinationPoint());
+    }
+
+    private Vector3 SelectDestinationPoint()
+    {
+        return _reservedSpot.transform.position;
+    }
+
+    private bool IsPredatorMoved()
+    {
+        return predator.position != _previousPredatorPosition;
+    }
+
+    private void GeneratePredatorPositionUpdateEvent()
+    {
+        helper.GeneratePredatorPositionUpdateEvent();
+    }
+
+    private void ReserveVictimHidingSpot()
+    {
+        _reservedSpot = helper.GetVictimHidingSpotTransform(transform, predator).GetComponent<HidingSpot>();
+    }
+
+    private void SetReferenceToEnteredLocationHelper(Collider other)
+    {
+        helper = other.GetComponent<HidingSpotLocationHelper>();
+    }
+
+    public static bool IsTagsEquals(Collider other, String tag)
+    {
+        return other.tag.Equals(tag);
+    }
+    
     private void SwitchAttackStatement()
     {
         _isAttack = !_isAttack;

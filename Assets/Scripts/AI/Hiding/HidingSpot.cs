@@ -1,25 +1,29 @@
-using System;
 using UnityEditor;
 using UnityEngine;
 
 public class HidingSpot : MonoBehaviour
 {
-    public Vector2 coverageDirection;
-
     private Transform _hidingVictimTransform;
+    private Vector3 _coverageDirection;
     private float _coverageAmount;
     private bool _isCoverTaken;
 
 
+    private void Start()
+    {
+        _coverageDirection = transform.rotation * Vector3.forward;
+    }
+
     private void OnDrawGizmos()
     {
         Vector3 position = transform.position;
+        Vector3 coverageDirection = transform.rotation * Vector3.forward / 2;
         
         // Draw hiding spot coverage amount and direction what it covers from
-        Gizmos.color = Color.black;
-        Gizmos.DrawRay(position, NormalizedCoverageDirection());
-        Handles.Label(position, "hiding spot\n" + _coverageAmount);
-        Gizmos.color = Color.white;
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(position, coverageDirection);
+        // Gizmos.color = Color.white;
+        Handles.Label(position, "hiding spot\n\t" + _coverageAmount);
     }
 
     public void CalculateCoverageAmount(Transform predator)
@@ -30,8 +34,8 @@ public class HidingSpot : MonoBehaviour
 
     private Vector3 NormalizedCoverageDirection()
     {
-        Vector2 normalizedDirection = coverageDirection.normalized;
-        return new Vector3(normalizedDirection.x, 0, normalizedDirection.y);
+        return _coverageDirection.normalized;
+        // return new Vector3(normalizedDirection.x, 0, normalizedDirection.y);
     }
 
     public Transform IsTaken()
@@ -68,14 +72,4 @@ namespace AI
     {
         public static readonly int CoverLayer = LayerMask.GetMask("Cover");
     }
-    
-    public class UnavailableCoverException : Exception
-    {
-        public override Exception GetBaseException()
-        {
-            return base.GetBaseException();
-        }
-        
-    }
-    
 }
