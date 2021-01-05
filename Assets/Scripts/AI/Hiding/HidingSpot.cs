@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
+
 public class HidingSpot : MonoBehaviour
 {
     private Transform _hidingVictimTransform;
@@ -8,11 +9,9 @@ public class HidingSpot : MonoBehaviour
     private float _coverageAmount;
     private bool _isCoverTaken;
 
-
-    private void Start()
-    {
-        _coverageDirection = transform.rotation * Vector3.forward;
-    }
+    
+    
+    //=========    EDITOR METHODS    ===========
 
     private void OnDrawGizmos()
     {
@@ -21,10 +20,28 @@ public class HidingSpot : MonoBehaviour
         
         // Draw hiding spot coverage amount and direction what it covers from
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(position, coverageDirection);
-        // Gizmos.color = Color.white;
-        Handles.Label(position, "hiding spot\n\t" + _coverageAmount);
+        
+        // Rotate global matrix for correct box drawing
+        Gizmos.matrix = transform.localToWorldMatrix;
+    
+        // Gizmos.DrawCube(Vector3.zero - Vector3.forward / 2, Vector3.one * 0.20f);
+        Gizmos.DrawWireCube(Vector3.zero - Vector3.forward / 2, Vector3.one * 0.20f);
+        Gizmos.DrawRay(Vector3.back / 2, Vector3.forward);
+       
+        Handles.Label(position, _coverageAmount.ToString());
     }
+
+    
+    //=========    ENGINE METHODS    ===========
+
+    private void Start()
+    {
+        _coverageDirection = transform.rotation * Vector3.forward;
+    }
+
+    
+    
+    //=========    OTHER METHODS    ===========
 
     public void CalculateCoverageAmount(Transform predator)
     {
