@@ -69,7 +69,7 @@ public class PickUpController : MonoBehaviour
 
         //Set parent to null
         transform.SetParent(null);
-
+        transform.localScale *= 2;
         //Make Rigidbody not kinematic and BoxCollider normal
         rb.isKinematic = false;
         coll.isTrigger = false;
