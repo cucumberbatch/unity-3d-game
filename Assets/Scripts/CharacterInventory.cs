@@ -22,7 +22,7 @@ public class CharacterInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) {
+        if (Input.GetKeyDown(KeyCode.T)) {
         	isTwoHanded = !isTwoHanded;
 			secondGun.SetActive(isTwoHanded);
 			firstGun.SetActive(!isTwoHanded);
