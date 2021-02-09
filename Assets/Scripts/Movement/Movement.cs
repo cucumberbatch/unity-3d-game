@@ -5,6 +5,8 @@ namespace Movement
 {
 	public class Movement : MonoBehaviour
 	{
+		public Transform playerTransform;
+		public Transform playerRespawnTransform;
 		public CharacterController characterController;
 		public float walkSpeed = 1;
 		public float sprintSpeed = 2;
@@ -20,6 +22,9 @@ namespace Movement
 
 		public MovementState MovementState { get; private set; }
 		public GroundType GroundType { get; private set; }
+		public Camera playerCamera;
+		public float minFOV;
+		public float maxFOV;
 
 		private CharacterCrouch _crouch;
 		private Vector3 _velocity;
@@ -35,6 +40,7 @@ namespace Movement
 
 		float t;
 		private Vector3 _previousOnGroundMovement;
+		private bool isRespawned = false;
 
 		private void Start()
 		{
@@ -45,12 +51,28 @@ namespace Movement
 
 		private void Update()
 		{
+			playerTransform = GetComponent<Transform>();
 			PlayerMovement();
 		}
 
 
 		private void PlayerMovement()
 		{
+			
+			if (isRespawned)
+			{
+				characterController.enabled = true;
+				isRespawned = false;
+			}
+			
+			if (Input.GetKeyDown(KeyCode.R))
+			{
+				playerTransform.SetPositionAndRotation(playerRespawnTransform.position, playerRespawnTransform.rotation);
+				// playerCamera.transform.rotation.Set(playerRespawnTransform.rotation);
+				characterController.enabled = false;
+				isRespawned = true;
+			}
+			
 			_isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
 			float x = Input.GetAxis("Horizontal");
@@ -84,7 +106,7 @@ namespace Movement
 				t = Mathf.Clamp(t, 0.0f, 1.0f);
 				
 				// Apply player velocity
-				_movement *= Mathf.Lerp(walkSpeed, sprintSpeed, t) / walkSpeed;
+				_movement *= Mathf.Lerp(Mathf.Lerp(walkSpeed, sprintSpeed, t), sprintSpeed, t) / walkSpeed;
 
 				_previousOnGroundMovement = new Vector3(_movement.x, _movement.y, _movement.z);
 
@@ -115,6 +137,9 @@ namespace Movement
 				t -= 0.25f * increaseVelocitySmoothFactor * Time.deltaTime;
 				characterController.Move(Vector3.Lerp(_movement, _previousOnGroundMovement, t) * (walkSpeed * Time.deltaTime));
 			}
+			
+			// Change FOV while sprinting
+			playerCamera.fieldOfView = Mathf.Lerp(Mathf.Lerp(minFOV, maxFOV, t), maxFOV, t);
 
 			// Crouching section
 			// TODO: it must feels more fluent when you release a crouching button
