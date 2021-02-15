@@ -21,6 +21,11 @@
           <e p="BulletsPool.cs" t="Include" />
           <e p="CharacterHealth.cs" t="Include" />
           <e p="CharacterInventory.cs" t="Include" />
+          <e p="Constants" t="Include">
+            <e p="Sounds" t="Include">
+              <e p="Soundboards.cs" t="Include" />
+            </e>
+          </e>
           <e p="Enemy.cs" t="Include" />
           <e p="EnemyV2.cs" t="Include" />
           <e p="HealthBar.cs" t="Include" />
@@ -31,7 +36,9 @@
           <e p="Movement" t="Include">
             <e p="CharacterCrouch.cs" t="Include" />
             <e p="CharacterFootsteps.cs" t="Include" />
-            <e p="CommandListener.cs" t="Include" />
+            <e p="FootstepsPlayer.cs" t="Include" />
+            <e p="FootstepsStateMachineCommand.cs" t="Include" />
+            <e p="Ground.cs" t="Include" />
             <e p="Movement.cs" t="Include" />
             <e p="MovementState.cs" t="Include" />
             <e p="PersonFootstepsStateMachine.cs" t="Include" />

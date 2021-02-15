@@ -1,0 +1,57 @@
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
+
+namespace Movement
+{
+	[Serializable]
+	public class FootstepsPlayer
+	{
+		[SerializeField]
+		private FootstepsSoundboard _soundboard;
+		private AudioSource 		_source;
+
+		
+		public FootstepsPlayer(FootstepsSoundboard soundboard, AudioSource source)
+		{
+			_soundboard = soundboard;
+			_source 	= source;
+		}
+
+		public void SetSoundboard(FootstepsSoundboard soundboard)
+		{
+			_soundboard = soundboard;
+		}
+		
+		public void PlayFootstepsSound()
+		{
+			AudioClip[] footstepSounds 	= _soundboard.footstepSounds;
+			
+			int soundIndex = Random.Range(1, footstepSounds.Length); 
+			_source.PlayOneShot(footstepSounds[soundIndex]);
+
+			Swap(ref footstepSounds[0], ref footstepSounds[soundIndex]);
+		}
+
+		public void PlayJumpSound()
+		{
+			_source.PlayOneShot(_soundboard.jumpSound);
+		}
+
+		public static void Swap<T>(ref T o1, ref T o2)
+		{
+			T t	= o1; 
+			o1 	= o2; 
+			o2 	= t;
+		}
+		
+	}
+
+	[Serializable]
+	public class FootstepsSoundboard
+	{
+		public AudioClip[] 	footstepSounds;
+		public AudioClip 	jumpSound;
+
+	}
+}

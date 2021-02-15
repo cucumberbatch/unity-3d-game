@@ -1,153 +1,132 @@
-using UnityEngine;
-
 namespace Movement
 {
 	public class PersonFootstepsStateMachine
 	{
-		public IState state;
-		public float timeToStep;
-		public AudioClip footstepSound;
-		public AudioClip jumpSound;
-		public AudioSource audioSource;
+		public static readonly IState Standing         = new StandingState();
+		public static readonly IState Walking          = new WalkingState();
+		public static readonly IState Flying           = new FlyingState();
+		
+		public IState 			state;
+		public FootstepsPlayer 	player;
+		public float 			timeToStep;
 
-		internal float _toStepCycles = 0.05f;
-		internal float _waitingTime = 0.0f;
+		internal float _walkIncrement 	= 0.05f;
+		internal float _runIncrement 	= 0.08f;
+		internal float _waitingTime;
 
-		public PersonFootstepsStateMachine(IState state, float timeToStep, AudioClip footstepSound, AudioClip jumpSound, AudioSource audioSource)
+		public PersonFootstepsStateMachine(FootstepsPlayer player, float timeToStep)
 		{
-			this.state = state;
+			this.player 	= player;
 			this.timeToStep = timeToStep;
-			this.footstepSound = footstepSound;
-			this.jumpSound = jumpSound;
-			this.audioSource = audioSource;
+			state 			= Standing;
 		}
 
-		public void Landing()
+		public void Execute(ISteppingCommand command)
 		{
-			state.Landing(this);
-		}
-		
-		public void Jump()
-		{
-			state.Jump(this);
-		}
-		
-		public void Flying()
-		{
-			state.Flying(this);
+			command.Execute(this);
 		}
 
-		public void Running()
+		public void PlayFootstepsSound()
 		{
-			state.Running(this);
-		}
-		
-		public void Walking()
-		{
-			state.Walking(this);
+			player.PlayFootstepsSound();
 		}
 
-		public void Standing()
+		public void PlayJumpSound()
 		{
-			state.Standing(this);
+			player.PlayJumpSound();
 		}
 	}
 
-	public interface IState
+	public class FlyingState : IState
 	{
-		void Landing(PersonFootstepsStateMachine machine);
-		void Jump(PersonFootstepsStateMachine machine);
-		void Flying(PersonFootstepsStateMachine machine);
-		void Running(PersonFootstepsStateMachine machine);
-		void Walking(PersonFootstepsStateMachine machine);
-		void Standing(PersonFootstepsStateMachine machine);
+		public void Flying(PersonFootstepsStateMachine machine) { }
+
+		public void Running(PersonFootstepsStateMachine machine)
+		{
+			Walking(machine);
+		}
+
+		public void Walking(PersonFootstepsStateMachine machine)
+		{
+			machine.PlayFootstepsSound();
+			machine.state = PersonFootstepsStateMachine.Walking;
+		}
+
+		public void Standing(PersonFootstepsStateMachine machine)
+		{ 
+			machine.PlayFootstepsSound();
+			machine.state = PersonFootstepsStateMachine.Standing;
+		}
 	}
 
-	public class Idle : IState
+	public class WalkingState : IState
 	{
-		public void Landing(PersonFootstepsStateMachine machine)
-		{
-			machine.audioSource.PlayOneShot(machine.footstepSound);
-		}
-
-		public void Jump(PersonFootstepsStateMachine machine)
-		{
-			machine.audioSource.PlayOneShot(machine.jumpSound);
-		}
-
 		public void Flying(PersonFootstepsStateMachine machine)
 		{
-			return;
+			machine.PlayJumpSound();
+			machine.state = PersonFootstepsStateMachine.Flying;
+		}
+
+		public void Running(PersonFootstepsStateMachine machine)
+		{
+			if (machine._waitingTime < machine.timeToStep)
+			{
+				machine._waitingTime += machine._runIncrement;
+				return;
+			}
+		
+			machine._waitingTime = .0f;
+			machine.PlayFootstepsSound();
+		}
+
+		public void Walking(PersonFootstepsStateMachine machine)
+		{
+			if (machine._waitingTime < machine.timeToStep)
+			{
+				machine._waitingTime += machine._walkIncrement;
+				return;
+			}
+		
+			machine._waitingTime = .0f;
+			machine.PlayFootstepsSound();
+		}
+
+		public void Standing(PersonFootstepsStateMachine machine)
+		{
+			machine._waitingTime = .0f;
+			machine.state = PersonFootstepsStateMachine.Standing;
+		}
+	}
+
+	public class StandingState : IState
+	{
+		public void Flying(PersonFootstepsStateMachine machine)
+		{
+			machine.PlayJumpSound();
+			machine.state = PersonFootstepsStateMachine.Flying;
 		}
 
 		public void Running(PersonFootstepsStateMachine machine)
 		{
 			Walking(machine);
 		}
-		
+
 		public void Walking(PersonFootstepsStateMachine machine)
 		{
-			machine.audioSource.PlayOneShot(machine.footstepSound);
+			machine.PlayFootstepsSound();
 			
-			machine.state = new WaitingForStep();
+			machine.state = PersonFootstepsStateMachine.Walking;
 		}
 
-		public void Standing(PersonFootstepsStateMachine machine)
-		{
-			return;
-		}
+		public void Standing(PersonFootstepsStateMachine machine) { }
 	}
 
-	public class WaitingForStep : IState
+	public interface IState
 	{
-		public void Landing(PersonFootstepsStateMachine machine)
-		{
-			machine.audioSource.PlayOneShot(machine.footstepSound);
-		}
-
-		public void Jump(PersonFootstepsStateMachine machine)
-		{
-			machine.audioSource.PlayOneShot(machine.jumpSound);
-			machine.state = new Idle();
-		}
-
-		public void Flying(PersonFootstepsStateMachine machine)
-		{
-			return;
-		}
-		
-		public void Running(PersonFootstepsStateMachine machine)
-		{
-			if (machine._waitingTime < machine.timeToStep)
-			{
-				machine._waitingTime += machine._toStepCycles * 1.75f;
-				return;
-			}
-		
-			machine.audioSource.PlayOneShot(machine.footstepSound);
-			machine._waitingTime = .0f;
-		}
-		
-		public void Walking(PersonFootstepsStateMachine machine)
-		{
-			if (machine._waitingTime < machine.timeToStep)
-			{
-				machine._waitingTime += machine._toStepCycles;
-				return;
-			}
-		
-			machine.audioSource.PlayOneShot(machine.footstepSound);
-			machine._waitingTime = .0f;
-		}
-	
-		public void Standing(PersonFootstepsStateMachine machine)
-		{
-			if (machine._waitingTime > machine.timeToStep / 1.25)
-			{
-				machine.audioSource.PlayOneShot(machine.footstepSound);
-			}
-			
-			machine.state = new Idle();
-		}
+		void Flying(PersonFootstepsStateMachine machine);
+		void Running(PersonFootstepsStateMachine machine);
+		void Walking(PersonFootstepsStateMachine machine);
+		void Standing(PersonFootstepsStateMachine machine);
 	}
+	
 }

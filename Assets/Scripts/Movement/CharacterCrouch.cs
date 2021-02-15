@@ -30,7 +30,6 @@ namespace Movement
 			
 			if (_gettingState >= standHeight)
 			{
-				//_isGettingUp = false;
 				_gettingState = standHeight;
 				return standHeight;
 			}

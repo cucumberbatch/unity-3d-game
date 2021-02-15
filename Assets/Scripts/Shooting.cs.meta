@@ -3,7 +3,12 @@ guid: 7b61cbdb27a07c548a2f354e1bce0bc6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bulletTransform: {instanceID: 0}
+  - poolDestination: {instanceID: 0}
+  - pointLight: {instanceID: 0}
+  - fire: {instanceID: 0}
+  - Pistol: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

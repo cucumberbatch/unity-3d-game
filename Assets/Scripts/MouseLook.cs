@@ -1,32 +1,42 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-
-	public float mouseSensitivity = 1000f;
 	public Transform playerBody;
+	public float mouseSensitivityX;
+	public float mouseSensitivityY;
+	public float cameraDamping;
+
+	private float xRotation;
+	private float yRotation;
 
 
-	private float xRotation = 0f;
-
-    // Start is called before the first frame update
-    void Start()
+	void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime * 100;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime * 100;
 
+        // left-right look
+        yRotation += mouseX;
+
+        // up-down look
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        
+        transform.localRotation = Quaternion.Lerp(
+	        transform.localRotation, 
+	        Quaternion.Euler(xRotation, 0, 0), 
+	        Time.deltaTime * cameraDamping);
+        
+        playerBody.localRotation = Quaternion.Lerp(
+	        playerBody.localRotation,
+	        Quaternion.Euler(0, yRotation, 0),
+	        Time.deltaTime * cameraDamping);
+        
     }
 }
