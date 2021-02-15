@@ -110,6 +110,12 @@ MonoBehaviour:
   projectorWall: {fileID: 0}
   projectorEnemy: {fileID: 0}
   maxProjectors: 50
+  ammocount: 1
+  availableammo: 1
+  maxAmmo: 100
+  AllMagazines: 30
+  AmountAmmo: 0
+  currentammoText: {fileID: 0}
 --- !u!54 &7551253766883457383
 Rigidbody:
   m_ObjectHideFlags: 0
