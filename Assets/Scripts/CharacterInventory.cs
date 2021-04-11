@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CharacterInventory : MonoBehaviour
 {
-
 	public GameObject firstGun;
 	public GameObject secondGun;
 
@@ -13,16 +12,34 @@ public class CharacterInventory : MonoBehaviour
 
 	private bool isTwoHanded = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T)) {
+		Color 	redColor 	   		   = new Color(1, 0, 0);
+		Vector3 originPosition		   = transform.position;
+		Vector3 incidentBeamDirection  = transform.rotation * new Vector3(0, 0, 1);
+		Vector3 reflectedBeamDirection = Vector3.zero;
+
+		RaycastHit hit;
+
+		while (Physics.Raycast(originPosition, incidentBeamDirection, out hit))
+		{
+			incidentBeamDirection  = hit.point - originPosition;
+			reflectedBeamDirection = Vector3.Reflect(incidentBeamDirection, hit.normal);
+
+			Debug.DrawRay(originPosition, incidentBeamDirection, redColor);
+
+			incidentBeamDirection = reflectedBeamDirection;
+			originPosition 		  = hit.point;
+		}
+
+		if (reflectedBeamDirection != Vector3.zero)
+		{
+			Debug.DrawRay(originPosition, reflectedBeamDirection, redColor);
+		}
+
+
+	    if (Input.GetKeyDown(KeyCode.T)) {
         	isTwoHanded = !isTwoHanded;
 			secondGun.SetActive(isTwoHanded);
 			firstGun.SetActive(!isTwoHanded);

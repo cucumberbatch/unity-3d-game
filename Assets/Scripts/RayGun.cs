@@ -42,6 +42,7 @@ public class RayGun : MonoBehaviour
 
     void Update()
     {
+
         currentammoText.text = ammocount+"/"+AllMagazines;
 
         if (ammocount <= maxAmmo)
@@ -133,7 +134,7 @@ public class RayGun : MonoBehaviour
 
     void Shoot()
     {
-        
+
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, shootingRange))
         {
             characterHealth = hit.transform.GetComponent<CharacterHealth>();
@@ -161,5 +162,3 @@ public class RayGun : MonoBehaviour
         availableammo = availableammo - maxAmmo;
     }
 }
-
-
