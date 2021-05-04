@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class BallisticBullet : MonoBehaviour
 {
+	public Transform originTransform;
+	
 	public float     speed;
 	public float     mass;
 	public float     gravityFactor;
-	public Vector3   normalMovementDirection;
-	public Transform originTransform;
 	public float 	 rayDuration;
 
 	private Vector3 _previousPosition;
@@ -39,23 +39,20 @@ public class BallisticBullet : MonoBehaviour
 		);
 		
 		Vector3 incidentBeamDirection	= transform.position - _previousPosition;
-		normalMovementDirection 	= incidentBeamDirection.normalized;
+		Vector3 reflectedBeamDirection;	 	
 
 		Debug.DrawRay(_previousPosition, incidentBeamDirection, generatedColor, rayDuration);
 
 		
 		// Raycasting for ricochete path calculations
 		RaycastHit hit;
-	
+
 		if (Physics.Raycast(_previousPosition, incidentBeamDirection, out hit, incidentBeamDirection.magnitude))
 		{
 			incidentBeamDirection	= hit.point - _previousPosition;
-			Vector3 reflectedBeamDirection	= Vector3.Reflect(incidentBeamDirection, hit.normal);
-
-			// Debug.DrawRay(_previousPosition, incidentBeamDirection, generatedColor, rayDuration);
-
-			// transform.position	= Vector3.Reflect(transform.position - hit.point, hit.normal);
+			reflectedBeamDirection	= Vector3.Reflect(incidentBeamDirection, hit.normal);
 			incidentBeamDirection	= reflectedBeamDirection;
+			transform.position	= hit.point + incidentBeamDirection;
 			_previousPosition	= hit.point;
 		}
 		else
